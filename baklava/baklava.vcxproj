@@ -161,9 +161,11 @@
   <ItemGroup>
     <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\tower.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headerFiles\camera.h" />
+    <ClInclude Include="headerFiles\tower.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
