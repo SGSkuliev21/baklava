@@ -1,5 +1,5 @@
 #include "raylib.h"
-
+#include "../headerFiles/camera.h"
 
 int main()
 {
@@ -8,22 +8,32 @@ int main()
 
     InitWindow(screenWidth, screenHeight, "Baklava");
 
+    //Difining the camera position
+    Camera camera = { 0 };
+    cameraSetUp(
+        camera,
+        60.0f, // FOV
+        Vector3({12.0f, 12.0f, 12.0f}), // position
+        Vector3({0.0f, 0.0f, 0.0f}) // target
+    );
+
+
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
 
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
-        // Update
-        //----------------------------------------------------------------------------------
-        // TODO: Update your variables here
-        //----------------------------------------------------------------------------------
-
-
-        BeginDrawing();
-        ClearBackground(RAYWHITE);
-
-
         
+        BeginDrawing();
+
+            ClearBackground(RAYWHITE);
+
+            BeginMode3D(camera);
+
+              DrawCube({0.0f, 0.0f, 0.0f}, 1.5f, 3.5f, 1.5f, MAROON);
+            
+            EndMode3D();
+
         EndDrawing();
     }
 
