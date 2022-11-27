@@ -1,13 +1,15 @@
 #pragma once
 #include "raylib.h"
 
-struct Stats 
+struct TowerStats 
 {
 	float attackSpeed;
 	float attackPower;
 	float defense;
 	float towerHealth;
-	float towerRegeneration;
+	float towerRegen;
+	Vector3 towerSize;
+	Vector3 towerPos;
 };
 
-void creteTower(Vector3 position, int* dimensions, Stats &stats, Color color, Color wireColor);
+void drawTower(TowerStats stats, Color color, Color wireColor);

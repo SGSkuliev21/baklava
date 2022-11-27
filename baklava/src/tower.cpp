@@ -1,22 +1,21 @@
-#include "raylib.h" 
+#include "raylib.h"
 
-
-struct Stats
+struct TowerStats
 {
 	float attackSpeed;
 	float attackPower;
 	float defense;
 	float towerHealth;
-	float towerRegeneration;
+	float towerRegen;
+	Vector3 towerSize;
+	Vector3 towerPos;
 };
 
-void creteTower(Vector3 cubePosition, int *dimensions, Stats &stats, Color color, Color wireColor)
+void drawTower(TowerStats stats, Color color, Color wireColor)
 {
+	Vector3 size = stats.towerSize;
+	Vector3 pos = stats.towerPos;
 
-	int x = dimensions[0];
-	int y = dimensions[1];
-	int z = dimensions[2];
-
-	DrawCube(cubePosition, x, y, z, color);
-	DrawCubeWires(cubePosition, x, y, x, wireColor);
-}								  
+	DrawCube(pos, size.x, size.y, size.z, color);
+	DrawCubeWires(pos, size.x, size.y, size.z, wireColor);
+}
