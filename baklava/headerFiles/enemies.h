@@ -15,6 +15,7 @@ struct EnemyStats
 	float offset;
 	int direction;
 	int directionChange;
+	EnemyWave mainwave;
 };
 
 EnemyStats generateEnemy(EnemyWave& wave);

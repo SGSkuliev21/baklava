@@ -14,9 +14,10 @@ struct EnemyStats
 	float offset;
 	int direction;
 	int directionChange;
+	EnemyWave wave;
 };
 
-EnemyStats generateEnemy(EnemyWave& mainWave)
+EnemyStats generateEnemy(EnemyWave &mainWave)
 {
 	EnemyStats stats;
 
@@ -26,13 +27,9 @@ EnemyStats generateEnemy(EnemyWave& mainWave)
 	stats.offset = float(GetRandomValue(1, 100)) / 60.0f;
 	stats.direction = GetRandomValue(-1, 2);
 	stats.directionChange = GetRandomValue(1, 2);
+	stats.wave = mainWave;
 
 	if (stats.direction == 2) stats.direction = 0;
-	if (stats.direction == 1 + stats.direction)
-	{
-		stats.direction *= -1;
-		stats.direction += 1;
-	}
 
 	if (stats.directionChange == 2) stats.directionChange = -1;
 
