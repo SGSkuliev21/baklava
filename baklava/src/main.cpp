@@ -23,7 +23,7 @@ int main()
     );
     
     // Initializing the tower stats: attack speed, attack power, defense, health, regen, size and position
-    TowerStats towerStats = { 1.0f, 2.0f, 3.0f, 4.0f, 5.0f, Vector3({3.0f, 9.0f, 3.0f}), Vector3({0.0f, 4.5f, 0.0f}) };
+    TowerStats towerStats = { 1.0f, 2.0f, 3.0f, 150.0f, 5.0f, Vector3({3.0f, 9.0f, 3.0f}), Vector3({0.0f, 4.5f, 0.0f}) };
  
     // Initializing enemy system
     const int enemyLimit = 6, debounceTimer = 0.4*fpsCap;
@@ -32,6 +32,7 @@ int main()
 
     int enemyDebounce = 0;
 
+    // Defining the variables for the wave system
     float waveTimerDecrement = 0.0f;
     int wavesLeft = 10;
     EnemyWave mainWave;
@@ -90,11 +91,11 @@ int main()
 
                 if (enemyList[i].linePos <= 1.8f)
                 {
+                    towerStats.towerHealth -= enemyList[i].damage;
+                    std::cout << towerStats.towerHealth;
                     enemyList.erase(enemyList.begin() + i);
                 }
 
-                if(enemyList.size() != 0)
-                    std::cout << enemyList[0].mainwave.wave;
             }
  
         drawTower(towerStats, BLUE, DARKBLUE);
