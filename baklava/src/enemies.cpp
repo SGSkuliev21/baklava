@@ -1,22 +1,5 @@
 #include "raylib.h"
-
-struct EnemyWave
-{
-	int wave;
-	int enemiesLeft;
-};
-
-struct EnemyStats
-{
-	float health;
-	float damage;
-	float linePos;
-	float offset;
-	int direction;
-	int directionChange;
-	Vector3 EnemyPosition;
-	EnemyWave wave;
-};
+#include "../headerFiles/healthBar.h"
 
 EnemyStats generateEnemy(EnemyWave &mainWave)
 {
@@ -28,7 +11,7 @@ EnemyStats generateEnemy(EnemyWave &mainWave)
 	stats.offset = float(GetRandomValue(1, 100)) / 60.0f;
 	stats.direction = GetRandomValue(-1, 2);
 	stats.directionChange = GetRandomValue(1, 2);
-	stats.wave = mainWave;
+	stats.mainwave = mainWave;
 
 	if (stats.direction == 2) stats.direction = 0;
 
@@ -44,8 +27,12 @@ void drawEnemy(EnemyStats stats, Color cubeColor, Color wireColor)
 	int dir = stats.direction;
 	int dirChange = stats.directionChange;
 
-	stats.EnemyPosition = Vector3({ (pos * (dir)) + (offset * (dirChange * !(dir))), 0.5f, (pos * (dirChange * !(dir)) + (offset * (dir))) });
+	stats.enemyPosition = Vector3({ (pos * (dir)) + (offset * (dirChange * !(dir))), 0.5f, (pos * (dirChange * !(dir)) + (offset * (dir))) });
 
-	DrawCube(stats.EnemyPosition, 1.0f, 1.0f, 1.0f, cubeColor);
-	DrawCubeWires(stats.EnemyPosition, 1.0f, 1.0f, 1.0f, wireColor);
+	DrawCube(stats.enemyPosition, 1.0f, 1.0f, 1.0f, cubeColor);
+	DrawCubeWires(stats.enemyPosition, 1.0f, 1.0f, 1.0f, wireColor);
+
+	HealthBar healthBarInfo = calculateHealthBar(stats);
+	DrawCube(healthBarInfo.healthBarPosition, 0.5f, 0.5f, healthBarInfo.healthBarLength, CLITERAL(Color){139, 0, 0, 255});
+	DrawCubeWires(healthBarInfo.healthBarPosition, 0.5f, 0.5f, healthBarInfo.healthBarLength, BROWN);
 }

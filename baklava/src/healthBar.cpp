@@ -21,3 +21,16 @@ HealthBar calculateHealthBar(TowerStats towerStats)
 
 	return healthBarInfo;
 }
+
+HealthBar calculateHealthBar(EnemyStats enemyStats)
+{
+	HealthBar healthBarInfo;
+
+	healthBarInfo.healthBarPosition.x = enemyStats.enemyPosition.x + 0.25f;
+	healthBarInfo.healthBarPosition.y = enemyStats.enemyPosition.y + 1.0f;
+	healthBarInfo.healthBarPosition.z = enemyStats.enemyPosition.z + 0.35f;
+
+	healthBarInfo.healthBarLength = (float)enemyStats.health / (float)(enemyStats.mainwave.wave * 2.5f);
+
+	return healthBarInfo;
+}

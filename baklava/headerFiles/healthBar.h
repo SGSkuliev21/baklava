@@ -11,3 +11,5 @@ struct HealthBar
 
 
 HealthBar calculateHealthBar(TowerStats towerStats);
+
+HealthBar calculateHealthBar(EnemyStats enemyStats);
