@@ -14,6 +14,7 @@ struct EnemyStats
 	float offset;
 	int direction;
 	int directionChange;
+	Vector3 EnemyPosition;
 	EnemyWave wave;
 };
 
@@ -43,6 +44,8 @@ void drawEnemy(EnemyStats stats, Color cubeColor, Color wireColor)
 	int dir = stats.direction;
 	int dirChange = stats.directionChange;
 
-	DrawCube(Vector3({ (pos * (dir)) + (offset * (dirChange * !(dir))), 0.5f, (pos * (dirChange * !(dir)) + (offset * (dir))) }), 1.0f, 1.0f, 1.0f, cubeColor);
-	DrawCubeWires(Vector3({ (pos * (dir)) + (offset * (dirChange * !(dir))), 0.5f, (pos * (dirChange * !(dir)) + (offset * (dir))) }), 1.0f, 1.0f, 1.0f, wireColor);
+	stats.EnemyPosition = Vector3({ (pos * (dir)) + (offset * (dirChange * !(dir))), 0.5f, (pos * (dirChange * !(dir)) + (offset * (dir))) });
+
+	DrawCube(stats.EnemyPosition, 1.0f, 1.0f, 1.0f, cubeColor);
+	DrawCubeWires(stats.EnemyPosition, 1.0f, 1.0f, 1.0f, wireColor);
 }

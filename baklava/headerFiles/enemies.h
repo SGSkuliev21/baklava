@@ -15,6 +15,7 @@ struct EnemyStats
 	float offset;
 	int direction;
 	int directionChange;
+	Vector3 EnemyPosition;
 	EnemyWave mainwave;
 };
 

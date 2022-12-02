@@ -1,15 +1,5 @@
 #include "raylib.h"
-
-struct TowerStats
-{
-	float attackSpeed;
-	float attackPower;
-	float defense;
-	float towerHealth;
-	float towerRegen;
-	Vector3 towerSize;
-	Vector3 towerPos;
-};
+#include "../headerFiles/healthBar.h" 
 
 void drawTower(TowerStats stats, Color color, Color wireColor)
 {
@@ -18,4 +8,8 @@ void drawTower(TowerStats stats, Color color, Color wireColor)
 
 	DrawCube(pos, size.x, size.y, size.z, color);
 	DrawCubeWires(pos, size.x, size.y, size.z, wireColor);
+
+	HealthBar healthBarInfo = calculateHealthBar(stats);
+	DrawCube(healthBarInfo.healthBarPosition, 0.5f, 0.5f, healthBarInfo.healthBarLength, GREEN);
+	DrawCubeWires(healthBarInfo.healthBarPosition, 0.5f, 0.5f, healthBarInfo.healthBarLength, DARKGREEN);
 }
