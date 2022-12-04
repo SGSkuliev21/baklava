@@ -4,6 +4,7 @@
 #include "../headerFiles/camera.h"
 #include "../headerFiles/tower.h"
 #include "../headerFiles/enemies.h"
+#include "../headerFiles/equation.h"
 
 int main()
 {
@@ -40,6 +41,23 @@ int main()
     mainWave.enemiesLeft = 10;
     int enemiesThisWave = 0;
     int waveTimer = 4.5*fpsCap;
+
+    // Generating equation
+    char operationSymbol = '+';
+    Equation equation = generateEquation();
+    switch (equation.operation)
+	{
+		case 0:
+            operationSymbol = '+';
+			break;
+		case 1:
+            operationSymbol = '-';
+			break;
+		case 2:
+            operationSymbol = 'x';
+			break;
+	} 
+
 
     // Setting the fps cap to 60
     SetTargetFPS(fpsCap);
@@ -79,7 +97,11 @@ int main()
 
         ClearBackground(RAYWHITE);
 
+        DrawText(TextFormat("%i %c %i = ", equation.firstNumber, operationSymbol, equation.secondNumber), (screenWidth / 2.0f) - 100, 0, 20, BLACK);
+
         BeginMode3D(camera);
+
+        
             
         DrawGrid(50, 1.0f);
 
@@ -96,8 +118,7 @@ int main()
                 }
             }
  
-            if (towerStats.towerHealth > 0)
-           {
+            if (towerStats.towerHealth > 0) {
                 drawTower(towerStats, BLUE, DARKBLUE);
             }
                    

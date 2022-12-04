@@ -1,5 +1,7 @@
 #include "raylib.h"
+#include <iostream>
 #include "../headerFiles/healthBar.h"
+#include <vector>
 
 EnemyStats generateEnemy(EnemyWave &mainWave)
 {
@@ -19,6 +21,7 @@ EnemyStats generateEnemy(EnemyWave &mainWave)
 
 	return stats;
 }
+
 
 void drawEnemy(EnemyStats stats, Color cubeColor, Color wireColor)
 {
