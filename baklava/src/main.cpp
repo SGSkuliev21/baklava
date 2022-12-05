@@ -5,6 +5,7 @@
 #include "../headerFiles/tower.h"
 #include "../headerFiles/enemies.h"
 #include "../headerFiles/equation.h"
+#include "../headerFiles/inputBox.h"
 
 int main()
 {
@@ -58,6 +59,11 @@ int main()
 			break;
 	} 
 
+    //Defining the variable for the text box
+    InputBoxInfo inputBox;
+    inputBox.input[3] = '\0';
+    inputBox.textBox = {screenWidth / 2.0f - 15, 12, 100, 35};
+
 
     // Setting the fps cap to 60
     SetTargetFPS(fpsCap);
@@ -83,21 +89,20 @@ int main()
         {
             waveTimer--;
         }
-        else 
+        else
         {
-            waveTimer = (4.5*fpsCap) - waveTimerDecrement;
+            waveTimer = (4.5 * fpsCap) - waveTimerDecrement;
             waveTimerDecrement += 0.05;
             enemiesThisWave = 0;
             mainWave.wave = mainWave.wave++;
         }
-        
-
        
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
 
-        DrawText(TextFormat("%i %c %i = ", equation.firstNumber, operationSymbol, equation.secondNumber), (screenWidth / 2.0f) - 100, 0, 20, BLACK);
+        DrawText(TextFormat("%i %c %i = ", equation.firstNumber, operationSymbol, equation.secondNumber), (screenWidth / 2.0f) - 100, 20, 20, BLACK);
+        drawInputBox(inputBox);
 
         BeginMode3D(camera);
 
@@ -133,3 +138,4 @@ int main()
 
     return 0;
 }
+
