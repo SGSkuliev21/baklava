@@ -1,14 +1,7 @@
 #include "raylib.h"
+#include <iostream>
 #include "../headerFiles/equation.h"
 
-void stringify(char* equation)
-{
-	for (size_t i = 0; i < 30; i++)
-	{
-
-
-	}
-}
 
 Equation generateEquation()
 {
@@ -34,3 +27,4 @@ Equation generateEquation()
 
 	return equationInfo;
 };
+

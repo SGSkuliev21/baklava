@@ -44,24 +44,14 @@ int main()
     int waveTimer = 4.5*fpsCap;
 
     // Generating equation
-    char operationSymbol = '+';
+    char operationSymbol = ' ';
     Equation equation = generateEquation();
-    switch (equation.operation)
-	{
-		case 0:
-            operationSymbol = '+';
-			break;
-		case 1:
-            operationSymbol = '-';
-			break;
-		case 2:
-            operationSymbol = 'x';
-			break;
-	} 
+     
 
+        
     //Defining the variable for the text box
     InputBoxInfo inputBox;
-    inputBox.input[3] = '\0';
+    inputBox.input[4] = '\0';
     inputBox.textBox = {screenWidth / 2.0f - 15, 12, 100, 35};
 
 
@@ -96,12 +86,56 @@ int main()
             enemiesThisWave = 0;
             mainWave.wave = mainWave.wave++;
         }
+
+        switch (equation.operation)
+	    {
+		case 0:
+            operationSymbol = '+';
+			break;
+		case 1:
+            operationSymbol = '-';
+			break;
+		case 2:
+            operationSymbol = 'x';
+			break;
+	    }
        
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
 
         DrawText(TextFormat("%i %c %i = ", equation.firstNumber, operationSymbol, equation.secondNumber), (screenWidth / 2.0f) - 100, 20, 20, BLACK);
+
+        if (IsKeyPressed(KEY_ENTER))
+        {
+            int playerAnswer = convertedPlayerAnswer(inputBox);
+
+            if (equation.answer == playerAnswer)
+            {
+                for (size_t i = 0; i < 4; i++)
+                {
+                    inputBox.input[i] = ' ';
+                }
+                inputBox.numCount = 0;
+
+                std::cout << "Yay" << std::endl;
+            }
+            else
+            {
+				for (size_t i = 0; i < 4; i++)
+                {
+                    inputBox.input[i] = ' ';
+                }
+                inputBox.numCount = 0;
+
+                std::cout << "Next time" << std::endl;
+
+            }
+            
+            equation = generateEquation();
+
+        }
+        
         drawInputBox(inputBox);
 
         BeginMode3D(camera);
