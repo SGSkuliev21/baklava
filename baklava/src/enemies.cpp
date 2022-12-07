@@ -9,7 +9,7 @@ EnemyStats generateEnemy(EnemyWave &mainWave)
 
 	stats.health = mainWave.wave * 5;
 	stats.damage = mainWave.wave * 2;
-	stats.linePos = 10.0f;
+	stats.linePos = 15.0f;
 	stats.offset = float(GetRandomValue(1, 100)) / 60.0f;
 	stats.direction = GetRandomValue(-1, 2);
 	stats.directionChange = GetRandomValue(1, 2);
@@ -20,6 +20,26 @@ EnemyStats generateEnemy(EnemyWave &mainWave)
 	if (stats.directionChange == 2) stats.directionChange = -1;
 
 	return stats;
+}
+
+
+void killEnemy(std::vector<EnemyStats>& enemyList, TowerStats &towerStats)
+{
+	int closestEnemy[2] = {99999, 0};
+
+	for (size_t i = 0; i < enemyList.size(); i++)
+	{
+		if (enemyList[i].linePos < closestEnemy[0])
+		{
+			closestEnemy[0] = enemyList[i].linePos;
+			closestEnemy[1] = i;
+		}
+	}
+
+	enemyList[closestEnemy[1]].health -= towerStats.attackPower;
+
+	if(enemyList[closestEnemy[1]].health == 0)
+		enemyList.erase(enemyList.begin() + closestEnemy[1]);
 }
 
 

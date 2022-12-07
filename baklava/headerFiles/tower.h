@@ -3,7 +3,6 @@
 
 struct TowerStats 
 {
-	float attackSpeed;
 	float attackPower;
 	float defense;
 	float towerHealth;

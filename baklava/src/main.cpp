@@ -25,10 +25,10 @@ int main()
     );
     
     // Initializing the tower stats: attack speed, attack power, defense, health, regen, size and position
-    TowerStats towerStats = { 1.0f, 2.0f, 3.0f, 150.0f, 5.0f, Vector3({3.0f, 9.0f, 3.0f}), Vector3({0.0f, 4.5f, 0.0f}) };
+    TowerStats towerStats = { 5.0f, 3.0f, 150.0f, 5.0f, Vector3({3.0f, 9.0f, 3.0f}), Vector3({0.0f, 4.5f, 0.0f}) };
  
     // Initializing enemy system
-    const int enemyLimit = 6, debounceTimer = 0.4*fpsCap;
+    const int enemyLimit = 6, debounceTimer = 0.8*fpsCap;
     std::vector<EnemyStats> enemyList;
     enemyList.reserve(enemyLimit);
 
@@ -39,9 +39,9 @@ int main()
     int wavesLeft = 10;
     EnemyWave mainWave;
     mainWave.wave = 1;
-    mainWave.enemiesLeft = 10;
+    mainWave.enemiesLeft = 6;
     int enemiesThisWave = 0;
-    int waveTimer = 4.5*fpsCap;
+    int waveTimer = 8*fpsCap;
 
     // Generating equation
     char operationSymbol = ' ';
@@ -52,7 +52,7 @@ int main()
     //Defining the variable for the text box
     InputBoxInfo inputBox;
     inputBox.input[4] = '\0';
-    inputBox.textBox = {screenWidth / 2.0f - 15, 12, 100, 35};
+    inputBox.textBox = {screenWidth / 2.0f - 20, 39, 100, 35};
 
 
     // Setting the fps cap to 60
@@ -81,7 +81,7 @@ int main()
         }
         else
         {
-            waveTimer = (4.5 * fpsCap) - waveTimerDecrement;
+            waveTimer = (8 * fpsCap) - waveTimerDecrement;
             waveTimerDecrement += 0.05;
             enemiesThisWave = 0;
             mainWave.wave = mainWave.wave++;
@@ -104,7 +104,7 @@ int main()
 
         ClearBackground(RAYWHITE);
 
-        DrawText(TextFormat("%i %c %i = ", equation.firstNumber, operationSymbol, equation.secondNumber), (screenWidth / 2.0f) - 100, 20, 20, BLACK);
+        DrawText(TextFormat("%i %c %i = ", equation.firstNumber, operationSymbol, equation.secondNumber), (screenWidth / 2.0f) - 100, 50, 20, BLACK);
 
         if (IsKeyPressed(KEY_ENTER))
         {
@@ -118,7 +118,7 @@ int main()
                 }
                 inputBox.numCount = 0;
 
-                std::cout << "Yay" << std::endl;
+                killEnemy(enemyList, towerStats);
             }
             else
             {
@@ -148,7 +148,7 @@ int main()
             {
                 drawEnemy(enemyList[i], RED, BROWN);
 
-                enemyList[i].linePos -= 4.0f * GetFrameTime();
+                enemyList[i].linePos -= 1.8f * GetFrameTime();
 
                 if (enemyList[i].linePos <= 1.8f)
                 {
