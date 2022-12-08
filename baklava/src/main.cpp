@@ -141,9 +141,9 @@ int main()
 
         }
         
+        drawUpgradeMenu();
         drawInputBox(inputBox);
 
-        drawUpgradeMenu();
 
         BeginMode3D(camera);
 
