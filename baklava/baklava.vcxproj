@@ -159,6 +159,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="headerFiles\upgradeMenu.h" />
     <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\enemies.cpp" />
     <ClCompile Include="src\equation.cpp" />
@@ -166,6 +167,7 @@
     <ClCompile Include="src\inputBox.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\tower.cpp" />
+    <ClCompile Include="src\upgradeMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headerFiles\camera.h" />

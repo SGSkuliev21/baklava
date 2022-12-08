@@ -4,7 +4,6 @@
 struct TowerStats 
 {
 	float attackPower;
-	float defense;
 	float towerHealth;
 	float towerRegen;
 	Vector3 towerSize;

@@ -6,6 +6,7 @@
 #include "../headerFiles/enemies.h"
 #include "../headerFiles/equation.h"
 #include "../headerFiles/inputBox.h"
+#include "../headerFiles/upgradeMenu.h"
 
 int main()
 {
@@ -24,8 +25,8 @@ int main()
         Vector3({0.0f, 0.0f, 0.0f}) // Target
     );
     
-    // Initializing the tower stats: attack speed, attack power, defense, health, regen, size and position
-    TowerStats towerStats = { 5.0f, 3.0f, 150.0f, 5.0f, Vector3({3.0f, 9.0f, 3.0f}), Vector3({0.0f, 4.5f, 0.0f}) };
+    // Initializing the tower stats: attack power, health, regen, size and position
+    TowerStats towerStats = { 5.0f, 150.0f, 0.005f, Vector3({3.0f, 9.0f, 3.0f}), Vector3({0.0f, 4.5f, 0.0f}) };
  
     // Initializing enemy system
     const int enemyLimit = 6, debounceTimer = 0.8*fpsCap;
@@ -99,6 +100,10 @@ int main()
             operationSymbol = 'x';
 			break;
 	    }
+
+        //Regen
+        if(towerStats.towerHealth != 150.0f)
+            towerStats.towerHealth += towerStats.towerRegen;
        
         BeginDrawing();
 
@@ -137,6 +142,8 @@ int main()
         }
         
         drawInputBox(inputBox);
+
+        drawUpgradeMenu();
 
         BeginMode3D(camera);
 

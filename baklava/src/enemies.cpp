@@ -27,19 +27,22 @@ void killEnemy(std::vector<EnemyStats>& enemyList, TowerStats &towerStats)
 {
 	int closestEnemy[2] = {99999, 0};
 
-	for (size_t i = 0; i < enemyList.size(); i++)
+	if (enemyList.size() > 0)
 	{
-		if (enemyList[i].linePos < closestEnemy[0])
+		for (size_t i = 0; i < enemyList.size(); i++)
 		{
-			closestEnemy[0] = enemyList[i].linePos;
-			closestEnemy[1] = i;
+			if (enemyList[i].linePos < closestEnemy[0])
+			{
+				closestEnemy[0] = enemyList[i].linePos;
+				closestEnemy[1] = i;
+			}
 		}
+
+		enemyList[closestEnemy[1]].health -= towerStats.attackPower;
+
+		if (enemyList[closestEnemy[1]].health == 0)
+			enemyList.erase(enemyList.begin() + closestEnemy[1]);
 	}
-
-	enemyList[closestEnemy[1]].health -= towerStats.attackPower;
-
-	if(enemyList[closestEnemy[1]].health == 0)
-		enemyList.erase(enemyList.begin() + closestEnemy[1]);
 }
 
 
