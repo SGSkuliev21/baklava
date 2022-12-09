@@ -159,23 +159,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="headerFiles\upgradeMenu.h" />
-    <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\enemies.cpp" />
     <ClCompile Include="src\equation.cpp" />
     <ClCompile Include="src\healthBar.cpp" />
     <ClCompile Include="src\inputBox.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\tower.cpp" />
-    <ClCompile Include="src\upgradeMenu.cpp" />
+    <ClCompile Include="src\tower.cpp">
+      <AdditionalHeaderUnitDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </AdditionalHeaderUnitDependencies>
+    </ClCompile>
+    <ClCompile Include="src\upgradeMenu.cpp">
+      <AdditionalHeaderUnitDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </AdditionalHeaderUnitDependencies>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="headerFiles\camera.h" />
     <ClInclude Include="headerFiles\enemies.h" />
     <ClInclude Include="headerFiles\equation.h" />
     <ClInclude Include="headerFiles\healthBar.h" />
     <ClInclude Include="headerFiles\inputBox.h" />
     <ClInclude Include="headerFiles\tower.h" />
+    <ClInclude Include="headerFiles\upgradeMenu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

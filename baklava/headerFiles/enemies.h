@@ -1,7 +1,7 @@
 #pragma once
-#include "raylib.h"
 #include "tower.h"
 #include <vector>
+#include "raylib.h"
 
 struct EnemyWave
 {

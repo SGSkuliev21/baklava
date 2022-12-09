@@ -1,7 +1,6 @@
 #include <vector>
 #include <iostream>
 #include "raylib.h"
-#include "../headerFiles/camera.h"
 #include "../headerFiles/tower.h"
 #include "../headerFiles/enemies.h"
 #include "../headerFiles/equation.h"
@@ -17,14 +16,15 @@ int main()
     InitWindow(screenWidth, screenHeight, "Baklava");
 
     // Defining the camera
-    Camera camera = { 0 };
-    cameraSetUp(
-        camera,
-        50.0f, // FOV
-        Vector3({20.0f, 22.0f, 20.0f}), // Position
-        Vector3({0.0f, 0.0f, 0.0f}) // Target
-    );
-    
+    Camera camera = { 0 };    
+    camera.position = Vector3({ 20.0f, 22.0f, 20.0f });
+    camera.target = Vector3({ 0.0f, 0.0f, 0.0f });
+    camera.up = Vector3({ 0.0f, 1.0f, 0.0f });
+    camera.fovy = 35.0f;
+    camera.projection = CAMERA_ORTHOGRAPHIC;
+
+    SetConfigFlags(FLAG_MSAA_4X_HINT);
+
     // Initializing the tower stats: attack power, health, regen, size and position
     TowerStats towerStats = { 5.0f, 150.0f, 0.005f, Vector3({3.0f, 9.0f, 3.0f}), Vector3({0.0f, 4.5f, 0.0f}) };
  
@@ -32,7 +32,6 @@ int main()
     const int enemyLimit = 6, debounceTimer = 0.8*fpsCap;
     std::vector<EnemyStats> enemyList;
     enemyList.reserve(enemyLimit);
-
     int enemyDebounce = 0;
 
     // Defining the variables for the wave system
@@ -47,8 +46,6 @@ int main()
     // Generating equation
     char operationSymbol = ' ';
     Equation equation = generateEquation();
-     
-
         
     //Defining the variable for the text box
     InputBoxInfo inputBox;
@@ -63,8 +60,16 @@ int main()
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
 
-        // Generates new enemy when under enemy limit and off cooldown
+
+        //Implementing zoom mechaninc
+        if (camera.fovy >= 20.0f && camera.fovy <= 35.0f)
+            camera.fovy -= GetMouseWheelMove() * 2;
+        else if (camera.fovy >= 20.0f)
+            camera.fovy -= 0.08f;
+        else
+            camera.fovy += 0.08f;
         
+        // Generates new enemy when under enemy limit and off cooldown      
         if (enemiesThisWave != mainWave.enemiesLeft && mainWave.wave <= wavesLeft)
         {
             if (enemyList.size() < enemyLimit && enemyDebounce == 0)
@@ -109,8 +114,6 @@ int main()
 
         ClearBackground(RAYWHITE);
 
-        DrawText(TextFormat("%i %c %i = ", equation.firstNumber, operationSymbol, equation.secondNumber), (screenWidth / 2.0f) - 100, 50, 20, BLACK);
-
         if (IsKeyPressed(KEY_ENTER))
         {
             int playerAnswer = convertedPlayerAnswer(inputBox);
@@ -140,10 +143,6 @@ int main()
             equation = generateEquation();
 
         }
-        
-        drawUpgradeMenu();
-        drawInputBox(inputBox);
-
 
         BeginMode3D(camera);
 
@@ -170,6 +169,10 @@ int main()
                    
         EndMode3D();
 
+        //Drawing the UI
+        DrawText(TextFormat("%i %c %i = ", equation.firstNumber, operationSymbol, equation.secondNumber), (screenWidth / 2.0f) - 100, 50, 20, BLACK);
+        drawUpgradeMenu();
+        drawInputBox(inputBox);
         DrawFPS(10, 10);
 
         EndDrawing();

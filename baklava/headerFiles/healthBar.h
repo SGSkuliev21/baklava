@@ -1,7 +1,7 @@
 #pragma once
-#include "raylib.h"
 #include "enemies.h"
 #include "tower.h"
+#include "raylib.h"
 
 struct HealthBar
 {
