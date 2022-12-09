@@ -5,6 +5,7 @@ struct TowerStats
 	float attackPower;
 	float towerHealth;
 	float towerRegen;
+	int multyKill;
 	Vector3 towerSize;
 	Vector3 towerPos;
 };

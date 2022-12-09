@@ -25,8 +25,8 @@ int main()
 
     SetConfigFlags(FLAG_MSAA_4X_HINT);
 
-    // Initializing the tower stats: attack power, health, regen, size and position
-    TowerStats towerStats = { 5.0f, 150.0f, 0.005f, Vector3({3.0f, 9.0f, 3.0f}), Vector3({0.0f, 4.5f, 0.0f}) };
+    // Initializing the tower stats: attack power, health, regen, multyKill, size and position
+    TowerStats towerStats = { 5.0f, 150.0f, 0.01f, 1, Vector3({3.0f, 9.0f, 3.0f}), Vector3({0.0f, 4.5f, 0.0f}) };
  
     // Initializing enemy system
     const int enemyLimit = 6, debounceTimer = 0.8*fpsCap;
@@ -51,6 +51,10 @@ int main()
     InputBoxInfo inputBox;
     inputBox.input[4] = '\0';
     inputBox.textBox = {screenWidth / 2.0f - 20, 39, 100, 35};
+
+    Button upgradeDamageButton = { 18.0f, 115.0f, 200.0f, 25.0f };
+    Button upgradeRegenButton = { 18.0f, 145.0f, 200.0f, 25.0f };
+    Button upgradeMultyKillButton = { 18.0f, 175.0f, 200.0f, 25.0f };
 
     int score = 0;
     int gold = 0;
@@ -109,7 +113,7 @@ int main()
 	    }
 
         //Regen
-        if(towerStats.towerHealth != 150.0f)
+        if(towerStats.towerHealth <= 150.0f)
             towerStats.towerHealth += towerStats.towerRegen;
        
         BeginDrawing();
@@ -128,7 +132,10 @@ int main()
                 }
                 inputBox.numCount = 0;
 
-                killEnemy(enemyList, towerStats, score, gold);
+                for (size_t i = 0; i < towerStats.multyKill; i++)
+                {
+                    killEnemy(enemyList, towerStats, score, gold);
+                }
             }
             else
             {
@@ -145,6 +152,7 @@ int main()
             equation = generateEquation();
 
         }
+
 
         BeginMode3D(camera);
 
@@ -168,6 +176,7 @@ int main()
             if (towerStats.towerHealth > 0) {
                 drawTower(towerStats, BLUE, DARKBLUE);
             }
+
                    
         EndMode3D();
 
@@ -175,8 +184,16 @@ int main()
         DrawText(TextFormat("%i %c %i = ", equation.firstNumber, operationSymbol, equation.secondNumber), (screenWidth / 2.0f) - 100, 50, 20, BLACK);
         DrawText(TextFormat("Score: %i", score), 10, 50, 30, BLACK);
         DrawText(TextFormat("Gold: %i", gold), 10, 80, 25, BLACK);
-        drawUpgradeMenu();
+        drawUpgradeMenu(upgradeDamageButton, upgradeRegenButton, upgradeMultyKillButton);
         drawInputBox(inputBox);
+
+
+        upgradeRegen(towerStats, gold, upgradeRegenButton);
+        upgradeDamage(towerStats, gold, upgradeDamageButton);
+        upgradeMultyKill(towerStats, gold, upgradeMultyKillButton);
+
+        std::cout << towerStats.multyKill << std::endl;
+
         DrawFPS(10, 10);
 
         EndDrawing();
