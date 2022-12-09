@@ -11,8 +11,8 @@ struct EnemyWave
 
 struct EnemyStats
 {
-	float health;
-	float damage;
+	float health = 4;
+	float damage = 2;
 	float linePos;
 	float offset;
 	int direction;

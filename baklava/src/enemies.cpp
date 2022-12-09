@@ -7,8 +7,27 @@ EnemyStats generateEnemy(EnemyWave &mainWave)
 {
 	EnemyStats stats;
 
-	stats.health = mainWave.wave * 5;
-	stats.damage = mainWave.wave * 2;
+	if (mainWave.wave != 1)
+	{
+		
+	}
+
+	switch (mainWave.wave) 
+	{
+		case 2: case 3: case 4:
+			stats.health += mainWave.wave * 1.5f;
+			stats.damage += mainWave.wave * 1.3f;
+			break;
+		case 5: case 6: case 7:
+			stats.health += mainWave.wave * 2.3f;
+			stats.damage += mainWave.wave * 2.0f;
+			break;
+		case 8: case 9: case 10:
+			stats.health += mainWave.wave * 4.0f;
+			stats.damage += mainWave.wave * 3.5f;
+			break;
+	}
+
 	stats.linePos = 15.0f;
 	stats.offset = float(GetRandomValue(1, 100)) / 60.0f;
 	stats.direction = GetRandomValue(-1, 2);
@@ -40,7 +59,7 @@ void killEnemy(std::vector<EnemyStats>& enemyList, TowerStats &towerStats, int &
 
 		enemyList[closestEnemy[1]].health -= towerStats.attackPower;
 
-		if (enemyList[closestEnemy[1]].health == 0)
+		if (enemyList[closestEnemy[1]].health < 0)
 		{ 
 			enemyList.erase(enemyList.begin() + closestEnemy[1]);
 			score += 10;

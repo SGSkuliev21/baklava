@@ -13,6 +13,7 @@ int main()
     const int fpsCap = 60;
     const int screenWidth = 1280;
     const int screenHeight = 720;
+    int framesCounter = 0;
     InitWindow(screenWidth, screenHeight, "Baklava");
 
     // Defining the camera
@@ -34,14 +35,15 @@ int main()
     enemyList.reserve(enemyLimit);
     int enemyDebounce = 0;
 
+
     // Defining the variables for the wave system
-    float waveTimerDecrement = 0.0f;
+    int waveTextDuration = 180;
     int wavesLeft = 10;
     EnemyWave mainWave;
     mainWave.wave = 1;
     mainWave.enemiesLeft = 6;
     int enemiesThisWave = 0;
-    int waveTimer = 8*fpsCap;
+    int waveTimer = 2 * fpsCap;
 
     // Generating equation
     char operationSymbol = ' ';
@@ -65,7 +67,7 @@ int main()
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
-
+        framesCounter++;
 
         //Implementing zoom mechaninc
         if (camera.fovy >= 20.0f && camera.fovy <= 35.0f)
@@ -76,9 +78,9 @@ int main()
             camera.fovy += 0.08f;
         
         // Generates new enemy when under enemy limit and off cooldown      
-        if (enemiesThisWave != mainWave.enemiesLeft && mainWave.wave <= wavesLeft)
+        if (enemiesThisWave != mainWave.enemiesLeft && mainWave.wave <= wavesLeft && waveTimer == 0)
         {
-            if (enemyList.size() < enemyLimit && enemyDebounce == 0)
+            if (enemyList.size() <= enemyLimit && enemyDebounce == 0)
             {
                 enemyList.push_back(generateEnemy(mainWave));
 
@@ -87,16 +89,15 @@ int main()
             }
             enemyDebounce--;
         }
-        else if (waveTimer != 0)
+        else if (waveTimer == 0)
         {
-            waveTimer--;
+            mainWave.wave = mainWave.wave++;
+            waveTimer = 8 * fpsCap;
+            enemiesThisWave = 0;
         }
         else
         {
-            waveTimer = (8 * fpsCap) - waveTimerDecrement;
-            waveTimerDecrement += 0.05;
-            enemiesThisWave = 0;
-            mainWave.wave = mainWave.wave++;
+            waveTimer--;
         }
 
         switch (equation.operation)
@@ -160,6 +161,8 @@ int main()
             
         DrawGrid(50, 1.0f);
 
+        if(framesCounter > 120)
+        {
             for (size_t i = 0; i < enemyList.size(); i++)
             {
                 drawEnemy(enemyList[i], RED, BROWN);
@@ -172,10 +175,11 @@ int main()
                     enemyList.erase(enemyList.begin() + i);
                 }
             }
+        }
  
-            if (towerStats.towerHealth > 0) {
-                drawTower(towerStats, BLUE, DARKBLUE);
-            }
+        if (towerStats.towerHealth > 0) {
+            drawTower(towerStats, BLUE, DARKBLUE);
+        }
 
                    
         EndMode3D();
@@ -192,7 +196,16 @@ int main()
         upgradeDamage(towerStats, gold, upgradeDamageButton);
         upgradeMultyKill(towerStats, gold, upgradeMultyKillButton);
 
-        std::cout << towerStats.multyKill << std::endl;
+
+        if ( waveTextDuration > 0 && enemyList.size() == 0 && mainWave.wave <= 10)
+        {
+            DrawText(TextFormat("Wave %i", mainWave.wave), screenWidth / 2.0f - 80, screenHeight / 2.0f - 100, 50, BLACK);
+            waveTextDuration--;
+        }
+        else
+        {
+            waveTextDuration = waveTimer;
+        }
 
         DrawFPS(10, 10);
 
