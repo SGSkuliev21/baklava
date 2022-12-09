@@ -52,6 +52,8 @@ int main()
     inputBox.input[4] = '\0';
     inputBox.textBox = {screenWidth / 2.0f - 20, 39, 100, 35};
 
+    int score = 0;
+    int gold = 0;
 
     // Setting the fps cap to 60
     SetTargetFPS(fpsCap);
@@ -126,7 +128,7 @@ int main()
                 }
                 inputBox.numCount = 0;
 
-                killEnemy(enemyList, towerStats);
+                killEnemy(enemyList, towerStats, score, gold);
             }
             else
             {
@@ -171,6 +173,8 @@ int main()
 
         //Drawing the UI
         DrawText(TextFormat("%i %c %i = ", equation.firstNumber, operationSymbol, equation.secondNumber), (screenWidth / 2.0f) - 100, 50, 20, BLACK);
+        DrawText(TextFormat("Score: %i", score), 10, 50, 30, BLACK);
+        DrawText(TextFormat("Gold: %i", gold), 10, 80, 25, BLACK);
         drawUpgradeMenu();
         drawInputBox(inputBox);
         DrawFPS(10, 10);

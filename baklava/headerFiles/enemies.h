@@ -25,4 +25,4 @@ EnemyStats generateEnemy(EnemyWave& wave);
 
 void drawEnemy(EnemyStats stats, Color cubeColor, Color wireColor);
 
-void killEnemy(std::vector<EnemyStats> &enemyList, TowerStats &towerStats);
+void killEnemy(std::vector<EnemyStats> &enemyList, TowerStats &towerStats, int &score, int &gold);

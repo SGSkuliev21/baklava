@@ -23,7 +23,7 @@ EnemyStats generateEnemy(EnemyWave &mainWave)
 }
 
 
-void killEnemy(std::vector<EnemyStats>& enemyList, TowerStats &towerStats)
+void killEnemy(std::vector<EnemyStats>& enemyList, TowerStats &towerStats, int &score, int &gold)
 {
 	int closestEnemy[2] = {99999, 0};
 
@@ -41,7 +41,11 @@ void killEnemy(std::vector<EnemyStats>& enemyList, TowerStats &towerStats)
 		enemyList[closestEnemy[1]].health -= towerStats.attackPower;
 
 		if (enemyList[closestEnemy[1]].health == 0)
+		{ 
 			enemyList.erase(enemyList.begin() + closestEnemy[1]);
+			score += 10;
+			gold += 5;
+		}
 	}
 }
 
