@@ -2,7 +2,7 @@
 #include "../headerFiles/tower.h"
 #include "../headerFiles/upgradeMenu.h"
 
-void drawUpgradeMenu(Button &upgradeDamageButton, Button &upgradeRegenButton, Button &upgradeMultyKillButton)
+void drawUpgradeMenu(Button &upgradeDamageButton, Button &upgradeRegenButton, Button &upgradeMultiKillButton)
 {
 	DrawRectangleRec(Rectangle({ 0.0f, 110.0f, 250.0f, 100.0f }), CLITERAL(Color){0,0,0, 45});
 
@@ -10,8 +10,8 @@ void drawUpgradeMenu(Button &upgradeDamageButton, Button &upgradeRegenButton, Bu
 	DrawText("Upgrade Damage", 20, 118, 20, BLACK);
 	DrawRectangleRec(upgradeRegenButton.buttonPosition, GREEN);
 	DrawText("Upgrade Regen", 20, 148, 20, BLACK);
-	DrawRectangleRec(upgradeMultyKillButton.buttonPosition, YELLOW);
-	DrawText("Upgrade Multy Kill", 20, 178, 20, BLACK);
+	DrawRectangleRec(upgradeMultiKillButton.buttonPosition, YELLOW);
+	DrawText("Upgrade Multi Kill", 20, 178, 20, BLACK);
 }
 
 void upgradeRegen(TowerStats &towerStats, int &gold, Button &upgradeRegenButton)
@@ -53,21 +53,25 @@ void upgradeDamage(TowerStats& towerStats, int& gold, Button& upgradeDamageButto
 	}
 }
 
-void upgradeMultyKill(TowerStats& towerStats, int& gold, Button& upgradeMultyKillButton)
+void upgradeMultiKill(TowerStats& towerStats, int& gold, Button& upgradeMultiKillButton)
 {
-	if (CheckCollisionPointRec(GetMousePosition(), upgradeMultyKillButton.buttonPosition) && IsMouseButtonPressed(0))
+	if (CheckCollisionPointRec(GetMousePosition(), upgradeMultiKillButton.buttonPosition) && IsMouseButtonPressed(0) && towerStats.multiKill < 4)
 	{
-
 		if (gold >= 30)
 		{
-			towerStats.multyKill++;
+			towerStats.multiKill++;
 			gold -= 30;
 		}
+
+	}
+	if (CheckCollisionPointRec(GetMousePosition(), upgradeMultiKillButton.buttonPosition))
+	{
+		if (towerStats.multiKill == 3)
+		{
+			DrawText("You can upgrade multi kill only 3 times", 5, 210, 20, BLACK);
+		}
+		DrawRectangleRec(upgradeMultiKillButton.buttonPosition, CLITERAL(Color){139, 128, 0, 255});
+		DrawText("Upgrade Multi Kill", 20, 178, 20, BLACK);
 	}
 
-	if (CheckCollisionPointRec(GetMousePosition(), upgradeMultyKillButton.buttonPosition))
-	{
-		DrawRectangleRec(upgradeMultyKillButton.buttonPosition, CLITERAL(Color){139, 128, 0, 255});
-		DrawText("Upgrade Multy Kill", 20, 178, 20, BLACK);
-	}
 }

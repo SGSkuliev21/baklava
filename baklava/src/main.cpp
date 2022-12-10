@@ -26,8 +26,8 @@ int main()
 
     SetConfigFlags(FLAG_MSAA_4X_HINT);
 
-    // Initializing the tower stats: attack power, health, regen, multyKill, size and position
-    TowerStats towerStats = { 5.0f, 150.0f, 0.01f, 1, Vector3({3.0f, 9.0f, 3.0f}), Vector3({0.0f, 4.5f, 0.0f}) };
+    // Initializing the tower stats: attack power, health, regen, multiKill, size and position
+    TowerStats towerStats = { 5.0f, 150.0f, 0.01f, 3, Vector3({3.0f, 9.0f, 3.0f}), Vector3({0.0f, 4.5f, 0.0f}) };
  
     // Initializing enemy system
     const int enemyLimit = 6, debounceTimer = 0.8*fpsCap;
@@ -56,7 +56,7 @@ int main()
 
     Button upgradeDamageButton = { 18.0f, 115.0f, 200.0f, 25.0f };
     Button upgradeRegenButton = { 18.0f, 145.0f, 200.0f, 25.0f };
-    Button upgradeMultyKillButton = { 18.0f, 175.0f, 200.0f, 25.0f };
+    Button upgradeMultiKillButton = { 18.0f, 175.0f, 200.0f, 25.0f };
 
     int score = 0;
     int gold = 0;
@@ -133,7 +133,7 @@ int main()
                 }
                 inputBox.numCount = 0;
 
-                for (size_t i = 0; i < towerStats.multyKill; i++)
+                for (size_t i = 0; i < towerStats.multiKill; i++)
                 {
                     killEnemy(enemyList, towerStats, score, gold);
                 }
@@ -188,13 +188,13 @@ int main()
         DrawText(TextFormat("%i %c %i = ", equation.firstNumber, operationSymbol, equation.secondNumber), (screenWidth / 2.0f) - 100, 50, 20, BLACK);
         DrawText(TextFormat("Score: %i", score), 10, 50, 30, BLACK);
         DrawText(TextFormat("Gold: %i", gold), 10, 80, 25, BLACK);
-        drawUpgradeMenu(upgradeDamageButton, upgradeRegenButton, upgradeMultyKillButton);
+        drawUpgradeMenu(upgradeDamageButton, upgradeRegenButton, upgradeMultiKillButton);
         drawInputBox(inputBox);
 
 
         upgradeRegen(towerStats, gold, upgradeRegenButton);
         upgradeDamage(towerStats, gold, upgradeDamageButton);
-        upgradeMultyKill(towerStats, gold, upgradeMultyKillButton);
+        upgradeMultiKill(towerStats, gold, upgradeMultiKillButton);
 
 
         if ( waveTextDuration > 0 && enemyList.size() == 0 && mainWave.wave <= 10)
