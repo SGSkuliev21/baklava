@@ -226,6 +226,11 @@ int main()
             waveTextDuration = waveTimer;
         }
 
+        
+        DrawRectangleGradientH(screenWidth / 2.0f - (towerStats.towerHealth * 3) / 2, screenHeight - 100, towerStats.towerHealth * 3, 60, CLITERAL(Color) { 0, 89, 0, 255 }, CLITERAL(Color){0, 158, 0, 255});
+        DrawRectangleLines(screenWidth / 2.0f - (towerStats.towerHealth * 3) / 2, screenHeight - 100, towerStats.towerHealth * 3, 60, BLACK);
+        DrawText("Health:", screenWidth / 2.0f - 60, screenHeight - 136, 40, WHITE);
+
         DrawFPS(10, 10);
 
         EndDrawing();

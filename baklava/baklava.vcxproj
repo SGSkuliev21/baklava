@@ -161,7 +161,6 @@
   <ItemGroup>
     <ClCompile Include="src\enemies.cpp" />
     <ClCompile Include="src\equation.cpp" />
-    <ClCompile Include="src\healthBar.cpp" />
     <ClCompile Include="src\inputBox.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\tower.cpp">
@@ -176,7 +175,6 @@
   <ItemGroup>
     <ClInclude Include="headerFiles\enemies.h" />
     <ClInclude Include="headerFiles\equation.h" />
-    <ClInclude Include="headerFiles\healthBar.h" />
     <ClInclude Include="headerFiles\inputBox.h" />
     <ClInclude Include="headerFiles\tower.h" />
     <ClInclude Include="headerFiles\upgradeMenu.h" />

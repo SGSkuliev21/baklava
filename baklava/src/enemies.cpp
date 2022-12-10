@@ -1,6 +1,6 @@
 #include "raylib.h"
 #include <iostream>
-#include "../headerFiles/healthBar.h"
+#include "../headerFiles/enemies.h"
 #include <vector>
 
 EnemyStats generateEnemy(EnemyWave &mainWave)
@@ -80,8 +80,4 @@ void drawEnemy(EnemyStats stats)
 
 	DrawCube(stats.enemyPosition, 1.0f, 1.0f, 1.0f, CLITERAL(Color){189, 0, 0, 255});
 	DrawCubeWires(stats.enemyPosition, 1.0f, 1.0f, 1.0f, CLITERAL(Color){110, 0, 0, 255});
-
-	HealthBar healthBarInfo = calculateHealthBar(stats);
-	DrawCube(healthBarInfo.healthBarPosition, 0.5f, 0.5f, healthBarInfo.healthBarLength, CLITERAL(Color){139, 0, 0, 255});
-	DrawCubeWires(healthBarInfo.healthBarPosition, 0.5f, 0.5f, healthBarInfo.healthBarLength, BROWN);
 }

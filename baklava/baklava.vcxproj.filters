@@ -24,9 +24,6 @@
     <ClCompile Include="src\enemies.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\healthBar.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\equation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -42,9 +39,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="headerFiles\enemies.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="headerFiles\healthBar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="headerFiles\equation.h">
