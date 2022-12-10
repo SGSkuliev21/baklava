@@ -27,7 +27,7 @@ int main()
     SetConfigFlags(FLAG_MSAA_4X_HINT);
 
     // Initializing the tower stats: attack power, health, regen, multiKill, size and position
-    TowerStats towerStats = { 5.0f, 150.0f, 0.01f, 3, Vector3({3.0f, 9.0f, 3.0f}), Vector3({0.0f, 4.5f, 0.0f}) };
+    TowerStats towerStats = { 5.0f, 150.0f, 0.01f, 1, Vector3({3.0f, 9.0f, 3.0f}), Vector3({0.0f, 4.5f, 0.0f}) };
  
     // Initializing enemy system
     const int enemyLimit = 6, debounceTimer = 0.8*fpsCap;
@@ -61,6 +61,10 @@ int main()
     int score = 0;
     int gold = 0;
 
+    //Defining the variable for the hit animation
+    bool isDamaged = false;
+    int vignettingTimer = 15;
+
     // Setting the fps cap to 60
     SetTargetFPS(fpsCap);
 
@@ -68,6 +72,16 @@ int main()
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
         framesCounter++;
+
+        if (vignettingTimer == 0)
+        {
+            isDamaged = false;
+            vignettingTimer = 15;
+        }
+        else
+        {
+            vignettingTimer--;
+        }
 
         //Implementing zoom mechaninc
         if (camera.fovy >= 20.0f && camera.fovy <= 35.0f)
@@ -173,6 +187,7 @@ int main()
                 {
                     towerStats.towerHealth -= enemyList[i].damage;
                     enemyList.erase(enemyList.begin() + i);
+                    isDamaged = true;
                 }
             }
         }
@@ -206,6 +221,12 @@ int main()
         {
             waveTextDuration = waveTimer;
         }
+
+        if (isDamaged)
+        {
+            DrawCircleGradient(screenWidth / 2.0f, screenHeight / 2.0f, 750, CLITERAL(Color){0, 0, 0, 0}, CLITERAL(Color) { 180, 0, 0, 50 });
+        }
+
 
         DrawFPS(10, 10);
 
