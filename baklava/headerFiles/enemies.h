@@ -23,6 +23,6 @@ struct EnemyStats
 
 EnemyStats generateEnemy(EnemyWave& wave);
 
-void drawEnemy(EnemyStats stats, Color cubeColor, Color wireColor);
+void drawEnemy(EnemyStats stats);
 
 void killEnemy(std::vector<EnemyStats> &enemyList, TowerStats &towerStats, int &score, int &gold);

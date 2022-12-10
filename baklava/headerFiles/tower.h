@@ -10,4 +10,4 @@ struct TowerStats
 	Vector3 towerPos;
 };
 
-void drawTower(TowerStats stats, Color color, Color wireColor);
+void drawTower(TowerStats stats);

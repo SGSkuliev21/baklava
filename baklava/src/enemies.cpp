@@ -69,7 +69,7 @@ void killEnemy(std::vector<EnemyStats>& enemyList, TowerStats &towerStats, int &
 }
 
 
-void drawEnemy(EnemyStats stats, Color cubeColor, Color wireColor)
+void drawEnemy(EnemyStats stats)
 {
 	float pos = stats.linePos;
 	float offset = stats.offset;
@@ -78,8 +78,8 @@ void drawEnemy(EnemyStats stats, Color cubeColor, Color wireColor)
 
 	stats.enemyPosition = Vector3({ (pos * (dir)) + (offset * (dirChange * !(dir))), 0.5f, (pos * (dirChange * !(dir)) + (offset * (dir))) });
 
-	DrawCube(stats.enemyPosition, 1.0f, 1.0f, 1.0f, cubeColor);
-	DrawCubeWires(stats.enemyPosition, 1.0f, 1.0f, 1.0f, wireColor);
+	DrawCube(stats.enemyPosition, 1.0f, 1.0f, 1.0f, CLITERAL(Color){189, 0, 0, 255});
+	DrawCubeWires(stats.enemyPosition, 1.0f, 1.0f, 1.0f, CLITERAL(Color){110, 0, 0, 255});
 
 	HealthBar healthBarInfo = calculateHealthBar(stats);
 	DrawCube(healthBarInfo.healthBarPosition, 0.5f, 0.5f, healthBarInfo.healthBarLength, CLITERAL(Color){139, 0, 0, 255});

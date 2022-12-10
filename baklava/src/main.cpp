@@ -134,7 +134,9 @@ int main()
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
-
+        DrawRectangleGradientH(0, 0, 1280, 720, CLITERAL(Color){14, 51, 27, 255},CLITERAL(Color){51, 184, 100, 255} );
+        DrawRectangleGradientV(0, 0, 1280, 720, CLITERAL(Color){14, 51, 27, 100}, CLITERAL(Color) { 51, 184, 100, 100 });
+       
         if (IsKeyPressed(KEY_ENTER))
         {
             int playerAnswer = convertedPlayerAnswer(inputBox);
@@ -160,8 +162,8 @@ int main()
                 }
                 inputBox.numCount = 0;
 
-                std::cout << "Next time" << std::endl;
-
+                if(score > 0)
+                    score -= 10;
             }
             
             equation = generateEquation();
@@ -171,15 +173,11 @@ int main()
 
         BeginMode3D(camera);
 
-        
-            
-        DrawGrid(50, 1.0f);
-
         if(framesCounter > 120)
         {
             for (size_t i = 0; i < enemyList.size(); i++)
             {
-                drawEnemy(enemyList[i], RED, BROWN);
+                drawEnemy(enemyList[i]);
 
                 enemyList[i].linePos -= 1.8f * GetFrameTime();
 
@@ -193,16 +191,22 @@ int main()
         }
  
         if (towerStats.towerHealth > 0) {
-            drawTower(towerStats, BLUE, DARKBLUE);
+            drawTower(towerStats);
         }
 
-                   
+        DrawGrid(50, 5.0f);
         EndMode3D();
 
+
+        if (isDamaged)
+        {
+            DrawCircleGradient(screenWidth / 2.0f, screenHeight / 2.0f, 750, CLITERAL(Color){0, 0, 0, 0}, CLITERAL(Color) { 180, 0, 0, 100 });
+        }
+
         //Drawing the UI
-        DrawText(TextFormat("%i %c %i = ", equation.firstNumber, operationSymbol, equation.secondNumber), (screenWidth / 2.0f) - 100, 50, 20, BLACK);
-        DrawText(TextFormat("Score: %i", score), 10, 50, 30, BLACK);
-        DrawText(TextFormat("Gold: %i", gold), 10, 80, 25, BLACK);
+        DrawText(TextFormat("%i %c %i = ", equation.firstNumber, operationSymbol, equation.secondNumber), (screenWidth / 2.0f) - 100, 50, 20, WHITE);
+        DrawText(TextFormat("Score: %i", score), 10, 50, 30, WHITE);
+        DrawText(TextFormat("Gold: %i", gold), 10, 80, 25, WHITE);
         drawUpgradeMenu(upgradeDamageButton, upgradeRegenButton, upgradeMultiKillButton);
         drawInputBox(inputBox);
 
@@ -214,19 +218,13 @@ int main()
 
         if ( waveTextDuration > 0 && enemyList.size() == 0 && mainWave.wave <= 10)
         {
-            DrawText(TextFormat("Wave %i", mainWave.wave), screenWidth / 2.0f - 80, screenHeight / 2.0f - 100, 50, BLACK);
+            DrawText(TextFormat("Wave %i", mainWave.wave), screenWidth / 2.0f - 80, screenHeight / 2.0f - 100, 50, WHITE);
             waveTextDuration--;
         }
         else
         {
             waveTextDuration = waveTimer;
         }
-
-        if (isDamaged)
-        {
-            DrawCircleGradient(screenWidth / 2.0f, screenHeight / 2.0f, 750, CLITERAL(Color){0, 0, 0, 0}, CLITERAL(Color) { 180, 0, 0, 50 });
-        }
-
 
         DrawFPS(10, 10);
 

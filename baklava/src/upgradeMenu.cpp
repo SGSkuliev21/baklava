@@ -6,11 +6,11 @@ void drawUpgradeMenu(Button &upgradeDamageButton, Button &upgradeRegenButton, Bu
 {
 	DrawRectangleRec(Rectangle({ 0.0f, 110.0f, 250.0f, 100.0f }), CLITERAL(Color){0,0,0, 45});
 
-	DrawRectangleRec(upgradeDamageButton.buttonPosition, RED);
+	DrawRectangleRec(upgradeDamageButton.buttonPosition, CLITERAL(Color){189, 0 , 0, 255});
 	DrawText("Upgrade Damage", 20, 118, 20, BLACK);
-	DrawRectangleRec(upgradeRegenButton.buttonPosition, GREEN);
+	DrawRectangleRec(upgradeRegenButton.buttonPosition, CLITERAL(Color){0, 155, 0, 255});
 	DrawText("Upgrade Regen", 20, 148, 20, BLACK);
-	DrawRectangleRec(upgradeMultiKillButton.buttonPosition, YELLOW);
+	DrawRectangleRec(upgradeMultiKillButton.buttonPosition, CLITERAL(Color){204, 204, 0, 255});
 	DrawText("Upgrade Multi Kill", 20, 178, 20, BLACK);
 }
 
@@ -55,7 +55,7 @@ void upgradeDamage(TowerStats& towerStats, int& gold, Button& upgradeDamageButto
 
 void upgradeMultiKill(TowerStats& towerStats, int& gold, Button& upgradeMultiKillButton)
 {
-	if (CheckCollisionPointRec(GetMousePosition(), upgradeMultiKillButton.buttonPosition) && IsMouseButtonPressed(0) && towerStats.multiKill < 4)
+	if (CheckCollisionPointRec(GetMousePosition(), upgradeMultiKillButton.buttonPosition) && IsMouseButtonPressed(0) && towerStats.multiKill < 3)
 	{
 		if (gold >= 30)
 		{
