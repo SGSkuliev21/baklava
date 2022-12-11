@@ -35,9 +35,14 @@ A tower defense game where you need to solve mathematical equations to kill enem
 ### Tools used for documantation, presentation & communication:
 
 <a href="https://www.microsoft.com/en-ww/microsoft-365/word?activetab=tabs%3afaqheaderregion3"><img src="/assets/icons/wordIcon.png" alt="Word Icon" width="60"/></a>
+<a href="https://www.doxygen.nl/"><img src="/assets/icons/doxygenIcon.png" alt="doxygen Icon" width="60"/></a>
 <a href="https://www.microsoft.com/en-ww/microsoft-365/powerpoint"><img src="/assets/icons/powerPointIcon.png" alt="PowerPoint Icon" width="60"/></a>
 <a href="https://www.microsoft.com/en-ww/microsoft-365/excel"><img src="/assets/icons/excelIcon.png" alt="Excel Icon" width="60"/></a>
 <a href="https://www.microsoft.com/en-us/microsoft-teams/group-chat-software"><img src="/assets/icons/teamsIcon.png" alt="Teams Icon" width="60"/></a>
+
+### Art & Design
+<a href="https://www.adobe.com/creativecloud.html"><img src="/assets/icons/adobeXDIcon.png" alt="AdobeEX Icon" width="60"/></a>
+<a href="https://www.adobe.com/creativecloud.html"><img src="/assets/icons/photoshopIcon.png" alt="Photoshop Icon" width="60"/></a>
 
 ## 📃 Documentation <a name="docs"></a>
 ### Code & Team Documentation
