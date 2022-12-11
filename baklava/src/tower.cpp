@@ -1,7 +1,7 @@
 #include "raylib.h"
 #include "../headerFiles/tower.h"
 
-void drawTower(TowerStats stats)
+void drawTower(TowerStats &stats)
 {
 	Vector3 size = stats.towerSize;
 	Vector3 pos = stats.towerPos;
