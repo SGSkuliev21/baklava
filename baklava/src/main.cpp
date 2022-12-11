@@ -6,6 +6,7 @@
 #include "../headerFiles/equation.h"
 #include "../headerFiles/inputBox.h"
 #include "../headerFiles/upgradeMenu.h"
+#include "../headerFiles/mainMenu.h"
 
 int main()
 {
@@ -14,6 +15,7 @@ int main()
     const int screenWidth = 1280;
     const int screenHeight = 720;
     int framesCounter = 0;
+    SetConfigFlags(FLAG_MSAA_4X_HINT);
     InitWindow(screenWidth, screenHeight, "Baklava");
 
     // Defining the camera
@@ -23,8 +25,6 @@ int main()
     camera.up = Vector3({ 0.0f, 1.0f, 0.0f });
     camera.fovy = 35.0f;
     camera.projection = CAMERA_ORTHOGRAPHIC;
-
-    SetConfigFlags(FLAG_MSAA_4X_HINT);
 
     // Initializing the tower stats: attack power, health, regen, multiKill, size and position
     TowerStats towerStats = { 5.0f, 150.0f, 0.01f, 1, Vector3({3.0f, 9.0f, 3.0f}), Vector3({0.0f, 4.5f, 0.0f}) };
@@ -68,6 +68,12 @@ int main()
     // Setting the fps cap to 60
     SetTargetFPS(fpsCap);
 
+    //Enter main menu
+    if (!mainMenuLoop())
+    {
+        return 0;
+    }
+
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
@@ -83,13 +89,14 @@ int main()
             vignettingTimer--;
         }
 
-        //Implementing zoom mechaninc
-        if (camera.fovy >= 20.0f && camera.fovy <= 35.0f)
-            camera.fovy -= GetMouseWheelMove() * 2;
-        else if (camera.fovy >= 20.0f)
-            camera.fovy -= 0.08f;
+        //Implementing zoom mechanic
+        float zoomChange = GetMouseWheelMove() * 2;
+        if(camera.fovy - zoomChange >= 20.0f && camera.fovy - zoomChange <= 35.0f)
+            camera.fovy -= zoomChange;
+        else if (camera.fovy - zoomChange < 20.0f)
+            camera.fovy = 20.0f;
         else
-            camera.fovy += 0.08f;
+            camera.fovy = 35.0f;
         
         // Generates new enemy when under enemy limit and off cooldown      
         if (enemiesThisWave != mainWave.enemiesLeft && mainWave.wave <= wavesLeft && waveTimer == 0)
@@ -134,8 +141,8 @@ int main()
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
-        DrawRectangleGradientH(0, 0, 1280, 720, CLITERAL(Color){14, 51, 27, 255},CLITERAL(Color){51, 184, 100, 255} );
-        DrawRectangleGradientV(0, 0, 1280, 720, CLITERAL(Color){14, 51, 27, 100}, CLITERAL(Color) { 51, 184, 100, 100 });
+        DrawRectangleGradientH(0, 0, 1280, 720, CLITERAL(Color){1, 97, 33, 255},CLITERAL(Color){2, 171, 58, 255} );
+        DrawRectangleGradientV(0, 0, 1280, 720, CLITERAL(Color){1, 97, 33, 255}, CLITERAL(Color) { 2, 171, 58, 255 });
        
         if (IsKeyPressed(KEY_ENTER))
         {

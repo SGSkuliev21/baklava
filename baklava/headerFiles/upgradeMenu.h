@@ -1,10 +1,5 @@
 #pragma once
-
-/// Stores the button info
-struct Button
-{
-	Rectangle buttonPosition;
-};
+#include "../headerFiles/mainMenu.h"
 
 /// Draw upgrade menu
 /// 
