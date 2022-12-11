@@ -1,16 +1,10 @@
 #include "raylib.h"
-#include <iostream>
 #include "../headerFiles/enemies.h"
 #include <vector>
 
 EnemyStats generateEnemy(EnemyWave &mainWave)
 {
 	EnemyStats stats;
-
-	if (mainWave.wave != 1)
-	{
-		
-	}
 
 	switch (mainWave.wave) 
 	{
@@ -41,6 +35,30 @@ EnemyStats generateEnemy(EnemyWave &mainWave)
 	return stats;
 }
 
+void waveSpawnHandler(int& debounce, const int enemyLimit, EnemyWave& wave, std::vector<EnemyStats>& enemyList, int& waveTimer, const int fps)
+{
+	if (wave.enemiesLeft > 0 && wave.wave <= 10 && waveTimer == 0)
+	{
+		if (enemyList.size() <= enemyLimit && debounce == 0)
+		{
+			enemyList.push_back(generateEnemy(wave));
+
+			debounce = 0.8 * fps;
+			wave.enemiesLeft--;
+		}
+		debounce--;
+	}
+	else if(waveTimer == 0)
+	{
+		wave.wave++;
+		waveTimer = 8 * fps;
+		wave.enemiesLeft = 6;
+	}
+	else
+	{
+		waveTimer--;
+	}
+}
 
 void killEnemy(std::vector<EnemyStats>& enemyList, TowerStats &towerStats, int &score, int &gold)
 {

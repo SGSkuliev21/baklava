@@ -30,6 +30,8 @@ struct EnemyStats
 /// @return This function returns Enemy Stats struct
 EnemyStats generateEnemy(EnemyWave& wave);
 
+void waveSpawnHandler(int& debounce, const int enemyLimit, EnemyWave& wave, std::vector<EnemyStats>& enemyList, int& waveTimer, const int fps);
+
 /// A function with is used for displaying enemies on the screen
 /// 
 /// This function draws enemies on the screen based on the enemy's stats

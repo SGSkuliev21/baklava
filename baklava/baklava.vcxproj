@@ -159,6 +159,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\defeatScreen.cpp" />
     <ClCompile Include="src\enemies.cpp" />
     <ClCompile Include="src\equation.cpp" />
     <ClCompile Include="src\inputBox.cpp" />
@@ -172,14 +173,17 @@
       <AdditionalHeaderUnitDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
       </AdditionalHeaderUnitDependencies>
     </ClCompile>
+    <ClCompile Include="src\victoryScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headerFiles\enemies.h" />
     <ClInclude Include="headerFiles\equation.h" />
     <ClInclude Include="headerFiles\inputBox.h" />
+    <ClInclude Include="headerFiles\loseScreen.h" />
     <ClInclude Include="headerFiles\mainMenu.h" />
     <ClInclude Include="headerFiles\tower.h" />
     <ClInclude Include="headerFiles\upgradeMenu.h" />
+    <ClInclude Include="headerFiles\victoryScreen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -69,6 +69,7 @@ int main()
     SetTargetFPS(fpsCap);
 
     //Enter main menu
+    int mmFadeTimer = 255;
     if (!mainMenuLoop())
     {
         return 0;
@@ -99,27 +100,7 @@ int main()
             camera.fovy = 35.0f;
         
         // Generates new enemy when under enemy limit and off cooldown      
-        if (enemiesThisWave != mainWave.enemiesLeft && mainWave.wave <= wavesLeft && waveTimer == 0)
-        {
-            if (enemyList.size() <= enemyLimit && enemyDebounce == 0)
-            {
-                enemyList.push_back(generateEnemy(mainWave));
-
-                enemyDebounce = debounceTimer;
-                enemiesThisWave++;
-            }
-            enemyDebounce--;
-        }
-        else if (waveTimer == 0)
-        {
-            mainWave.wave = mainWave.wave++;
-            waveTimer = 8 * fpsCap;
-            enemiesThisWave = 0;
-        }
-        else
-        {
-            waveTimer--;
-        }
+        waveSpawnHandler(enemyDebounce, enemyLimit, mainWave, enemyList, waveTimer, fpsCap);
 
         switch (equation.operation)
 	    {
@@ -180,7 +161,7 @@ int main()
 
         BeginMode3D(camera);
 
-        if(framesCounter > 120)
+        if(framesCounter > 2 * fpsCap)
         {
             for (size_t i = 0; i < enemyList.size(); i++)
             {
@@ -239,6 +220,12 @@ int main()
         DrawText("Health:", screenWidth / 2.0f - 60, screenHeight - 136, 40, WHITE);
 
         DrawFPS(10, 10);
+
+        if (mmFadeTimer > 0)
+        {
+            mmFadeTimer -= 5;
+            DrawRectangle(0, 0, screenWidth, screenHeight, CLITERAL(Color){ 0, 0, 0, (unsigned char)mmFadeTimer});
+        }
 
         EndDrawing();
     }

@@ -5,7 +5,7 @@ bool mainMenuLoop();
 
 struct Button
 {
-	Rectangle rect;
+	Rectangle rec;
 	short state;
 	Color color;
 	Color hoverColor;
