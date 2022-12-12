@@ -305,7 +305,7 @@ typedef struct Camera3D {
     Vector3 target;         // Camera target it looks-at
     Vector3 up;             // Camera up vector (rotation over its axis)
     float fovy;             // Camera field-of-view apperture in Y (degrees) in perspective, used as near plane width in orthographic
-    int projection;         // Camera projection: CAMERA_PERSPECTIVE or CAMERA_ORTHOGRAPHIC
+    int rayection;         // Camera rayection: CAMERA_PERSPECTIVE or CAMERA_ORTHOGRAPHIC
 } Camera3D;
 
 typedef Camera3D Camera;    // Camera type fallback, defaults to Camera3D
@@ -476,7 +476,7 @@ typedef struct VrDeviceInfo {
 
 // VrStereoConfig, VR stereo rendering configuration for simulator
 typedef struct VrStereoConfig {
-    Matrix projection[2];           // VR projection matrices (per eye)
+    Matrix rayection[2];           // VR rayection matrices (per eye)
     Matrix viewOffset[2];           // VR view offset matrices (per eye)
     float leftLensCenter[2];        // VR left lens center
     float rightLensCenter[2];       // VR right lens center
@@ -739,9 +739,9 @@ typedef enum {
     SHADER_LOC_VERTEX_NORMAL,       // Shader location: vertex attribute: normal
     SHADER_LOC_VERTEX_TANGENT,      // Shader location: vertex attribute: tangent
     SHADER_LOC_VERTEX_COLOR,        // Shader location: vertex attribute: color
-    SHADER_LOC_MATRIX_MVP,          // Shader location: matrix uniform: model-view-projection
+    SHADER_LOC_MATRIX_MVP,          // Shader location: matrix uniform: model-view-rayection
     SHADER_LOC_MATRIX_VIEW,         // Shader location: matrix uniform: view (camera transform)
-    SHADER_LOC_MATRIX_PROJECTION,   // Shader location: matrix uniform: projection
+    SHADER_LOC_MATRIX_PROJECTION,   // Shader location: matrix uniform: rayection
     SHADER_LOC_MATRIX_MODEL,        // Shader location: matrix uniform: model (transform)
     SHADER_LOC_MATRIX_NORMAL,       // Shader location: matrix uniform: normal
     SHADER_LOC_VECTOR_VIEW,         // Shader location: vector uniform: view
@@ -884,10 +884,10 @@ typedef enum {
     CAMERA_THIRD_PERSON             // Third person camera
 } CameraMode;
 
-// Camera projection
+// Camera rayection
 typedef enum {
-    CAMERA_PERSPECTIVE = 0,         // Perspective projection
-    CAMERA_ORTHOGRAPHIC             // Orthographic projection
+    CAMERA_PERSPECTIVE = 0,         // Perspective rayection
+    CAMERA_ORTHOGRAPHIC             // Orthographic rayection
 } CameraProjection;
 
 // N-patch layout

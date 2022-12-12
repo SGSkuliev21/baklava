@@ -1,5 +1,6 @@
 #include "raylib.h"
 #include "../headerFiles/enemies.h"
+#include "../headerFiles/rays.h"
 #include <vector>
 
 EnemyStats generateEnemy(EnemyWave &mainWave)
@@ -61,7 +62,20 @@ void waveSpawnHandler(int& debounce, const int enemyLimit, EnemyWave& wave, std:
 	}
 }
 
-void killEnemy(EnemyWave& wave, std::vector<EnemyStats>& enemyList, TowerStats &towerStats, int &score, int &gold)
+void drawEnemy(EnemyStats& stats)
+{
+	float pos = stats.linePos;
+	float offset = stats.offset;
+	int dir = stats.direction;
+	int dirChange = stats.directionChange;
+
+	stats.enemyPosition = Vector3({ (pos * (dir)) + (offset * (dirChange * !(dir))), 0.5f, (pos * (dirChange * !(dir)) + (offset * (dir))) });
+
+	DrawCube(stats.enemyPosition, 1.0f, 1.0f, 1.0f, CLITERAL(Color){189, 0, 0, 255});
+	DrawCubeWires(stats.enemyPosition, 1.0f, 1.0f, 1.0f, CLITERAL(Color){150, 0, 0, 255});
+}
+
+void killEnemy(EnemyWave& wave, std::vector<EnemyStats>& enemyList, std::vector<TowerRay>& rayList, TowerStats &towerStats, int &score, int &gold)
 {
 	int closestEnemy[2] = {99999, 0};
 
@@ -76,6 +90,8 @@ void killEnemy(EnemyWave& wave, std::vector<EnemyStats>& enemyList, TowerStats &
 			}
 		}
 
+		rayList.push_back(createRay(enemyList[closestEnemy[1]].enemyPosition));
+
 		enemyList[closestEnemy[1]].health -= towerStats.attackPower;
 
 		if (enemyList[closestEnemy[1]].health < 0)
@@ -86,18 +102,4 @@ void killEnemy(EnemyWave& wave, std::vector<EnemyStats>& enemyList, TowerStats &
 			gold += 5;
 		}
 	}
-}
-
-
-void drawEnemy(EnemyStats stats)
-{
-	float pos = stats.linePos;
-	float offset = stats.offset;
-	int dir = stats.direction;
-	int dirChange = stats.directionChange;
-
-	stats.enemyPosition = Vector3({ (pos * (dir)) + (offset * (dirChange * !(dir))), 0.5f, (pos * (dirChange * !(dir)) + (offset * (dir))) });
-
-	DrawCube(stats.enemyPosition, 1.0f, 1.0f, 1.0f, CLITERAL(Color){189, 0, 0, 255});
-	DrawCubeWires(stats.enemyPosition, 1.0f, 1.0f, 1.0f, CLITERAL(Color){110, 0, 0, 255});
 }

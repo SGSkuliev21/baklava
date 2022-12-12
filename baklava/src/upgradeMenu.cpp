@@ -9,23 +9,40 @@ void openUpgradeMenu(Button& upgrade1, Button& upgrade2, Button& upgrade3, Butto
 	{
 		if (menu.x <= 0)
 		{
-			upgrade1.rec.x += 360.0f * GetFrameTime();
-			upgrade2.rec.x += 360.0f * GetFrameTime();
-			upgrade3.rec.x += 360.0f * GetFrameTime();
-			menuButton.rec.x += 360.0f * GetFrameTime();
-			menu.x += 360.0f * GetFrameTime();
+			upgrade1.rec.x += 520.0f * GetFrameTime();
+			upgrade2.rec.x += 520.0f * GetFrameTime();
+			upgrade3.rec.x += 520.0f * GetFrameTime();
+			menuButton.rec.x += 720.0f * GetFrameTime();
+			menu.x += 720.0f * GetFrameTime();
 		}
 	}
 	else
 	{
 		if (menu.x >= -324)
 		{
-			upgrade1.rec.x -= 360.0f * GetFrameTime();
-			upgrade2.rec.x -= 360.0f * GetFrameTime();
-			upgrade3.rec.x -= 360.0f * GetFrameTime();
-			menuButton.rec.x -= 360.0f * GetFrameTime();
-			menu.x -= 360.0f * GetFrameTime();
+			upgrade1.rec.x -= 520.0f * GetFrameTime();
+			upgrade2.rec.x -= 520.0f * GetFrameTime();
+			upgrade3.rec.x -= 520.0f * GetFrameTime();
+			menuButton.rec.x -= 720.0f * GetFrameTime();
+			menu.x -= 720.0f * GetFrameTime();
 		}
+	}
+
+	if (menu.x < -324)
+	{
+		menu.x = -324;
+		menuButton.rec.x = -4;
+		upgrade1.rec.x = -210;
+		upgrade2.rec.x = -210;
+		upgrade3.rec.x = -210;
+	}
+	if (menu.x > 0)
+	{
+		menu.x = 0;
+		menuButton.rec.x = 324;
+		upgrade1.rec.x = 18;
+		upgrade2.rec.x = 18;
+		upgrade3.rec.x = 18;
 	}
 }
 
@@ -51,13 +68,9 @@ void upgradeDamage(TowerStats& towerStats, int& gold, UpgradeButton& damage)
 
 void upgradeMultiKill(TowerStats& towerStats, int& gold, UpgradeButton& multiKill)
 {
-	if (multiKill.timesBought == 3)
+	if (gold >= multiKill.price)
 	{
-		DrawText("You can only upgrade multi kill 3 times", 5, 210, 20, BLACK);
-	}
-	else if (gold >= multiKill.price)
-	{
-		multiKill.timesBought;
+		multiKill.timesBought++;
 		towerStats.multiKill++;
 		gold -= multiKill.price;
 	}

@@ -1,5 +1,5 @@
 #pragma once
-#include "../headerFiles/buttonHandler.h"
+#include "buttonHandler.h"
 
 struct UpgradeButton
 {

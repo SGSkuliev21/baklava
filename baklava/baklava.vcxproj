@@ -166,6 +166,7 @@
     <ClCompile Include="src\inputBox.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\mainMenu.cpp" />
+    <ClCompile Include="src\rays.cpp" />
     <ClCompile Include="src\tower.cpp">
       <AdditionalHeaderUnitDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
       </AdditionalHeaderUnitDependencies>
@@ -183,6 +184,7 @@
     <ClInclude Include="headerFiles\inputBox.h" />
     <ClInclude Include="headerFiles\defeatScreen.h" />
     <ClInclude Include="headerFiles\mainMenu.h" />
+    <ClInclude Include="headerFiles\rays.h" />
     <ClInclude Include="headerFiles\tower.h" />
     <ClInclude Include="headerFiles\upgradeMenu.h" />
     <ClInclude Include="headerFiles\victoryScreen.h" />

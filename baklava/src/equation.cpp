@@ -4,6 +4,7 @@
 #include "../headerFiles/inputBox.h"
 #include "../headerFiles/tower.h"
 #include "../headerFiles/enemies.h"
+#include "../headerFiles/rays.h"
 
 
 Equation generateEquation()
@@ -31,7 +32,7 @@ Equation generateEquation()
 	return equationInfo;
 };
 
-void equationHandler(InputBoxInfo& inputBox, Equation& equation, TowerStats towerStats, EnemyWave& wave, std::vector<EnemyStats>& enemyList, int& score, int& gold)
+void equationHandler(InputBoxInfo& inputBox, Equation& equation, TowerStats towerStats, EnemyWave& wave, std::vector<EnemyStats>& enemyList, std::vector<TowerRay>& rayList, int& score, int& gold)
 {
     int playerAnswer = convertedPlayerAnswer(inputBox);
 
@@ -45,7 +46,7 @@ void equationHandler(InputBoxInfo& inputBox, Equation& equation, TowerStats towe
 
         for (size_t i = 0; i < towerStats.multiKill; i++)
         {
-            killEnemy(wave, enemyList, towerStats, score, gold);
+            killEnemy(wave, enemyList, rayList, towerStats, score, gold);
         }
     }
     else

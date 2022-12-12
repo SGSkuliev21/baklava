@@ -1,5 +1,6 @@
 #pragma once
 #include "tower.h"
+#include "rays.h"
 #include <vector>
 #include "raylib.h"
 
@@ -38,7 +39,7 @@ void waveSpawnHandler(int& debounce, const int enemyLimit, EnemyWave& wave, std:
 /// This function draws enemies on the screen based on the enemy's stats
 /// @param stats custam made struct with contains information about the enemy
 /// @see EnemyStats(EnemyWave& wave)
-void drawEnemy(EnemyStats stats);
+void drawEnemy(EnemyStats& stats);
 
 /// Kill Enemy 
 ///	
@@ -48,4 +49,4 @@ void drawEnemy(EnemyStats stats);
 /// @param score the player score. The score is incremented by 10 with every kill and decremented by 10 with every wrong equation.
 /// @param gold the player gold. The gold is incremented by 5 with every kill
 /// @see TowerStats
-void killEnemy(EnemyWave& wave, std::vector<EnemyStats>& enemyList, TowerStats& towerStats, int& score, int& gold);
+void killEnemy(EnemyWave& wave, std::vector<EnemyStats>& enemyList, std::vector<TowerRay>& rayList, TowerStats& towerStats, int& score, int& gold);
