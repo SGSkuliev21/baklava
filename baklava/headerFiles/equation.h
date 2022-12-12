@@ -1,4 +1,7 @@
 #pragma once
+#include "../headerFiles/inputBox.h"
+#include "../headerFiles/tower.h"
+#include "../headerFiles/enemies.h"
 
 /// Stores all equation info
 struct Equation
@@ -15,3 +18,5 @@ struct Equation
 /// @return Equation struct
 /// @see Equation
 Equation generateEquation();
+
+void equationHandler(InputBoxInfo& inputBox, Equation& equation, TowerStats towerStats, std::vector<EnemyStats>& enemyList, int& score, int& gold);

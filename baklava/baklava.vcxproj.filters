@@ -42,6 +42,9 @@
     <ClCompile Include="src\defeatScreen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\buttonHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headerFiles\tower.h">
@@ -65,7 +68,10 @@
     <ClInclude Include="headerFiles\victoryScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headerFiles\loseScreen.h">
+    <ClInclude Include="headerFiles\defeatScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headerFiles\buttonHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -51,7 +51,7 @@ void waveSpawnHandler(int& debounce, const int enemyLimit, EnemyWave& wave, std:
 	else if(waveTimer == 0)
 	{
 		wave.wave++;
-		waveTimer = 8 * fps;
+		waveTimer = 2 * fps;
 		wave.enemiesLeft = 6;
 	}
 	else

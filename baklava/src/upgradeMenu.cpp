@@ -1,7 +1,7 @@
 #include "raylib.h"
 #include "../headerFiles/tower.h"
 #include "../headerFiles/upgradeMenu.h"
-#include "../headerFiles/mainMenu.h"
+#include "../headerFiles/buttonHandler.h"
 
 void drawUpgradeMenu(Button &upgradeDamageButton, Button &upgradeRegenButton, Button &upgradeMultiKillButton)
 {

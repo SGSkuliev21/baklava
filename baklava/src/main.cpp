@@ -7,6 +7,8 @@
 #include "../headerFiles/inputBox.h"
 #include "../headerFiles/upgradeMenu.h"
 #include "../headerFiles/mainMenu.h"
+#include "../headerFiles/buttonHandler.h"
+#include "../headerFiles/victoryScreen.h"
 
 int main()
 {
@@ -80,6 +82,26 @@ int main()
     {
         framesCounter++;
 
+        if (mainWave.wave == 2)
+        {
+            if (showVictoryScreen())
+            {
+                mainWave.wave = 1;
+                enemiesThisWave = 6;
+                enemyList.clear();
+                score = 0;
+                gold = 0;
+                towerStats.multiKill = 1;
+                towerStats.towerRegen = 0.01f;
+                towerStats.attackPower = 5.0f;
+                inputBox.input[0] = '\0';
+            }
+            else
+            {
+                break;
+            }
+        }
+
         if (vignettingTimer == 0)
         {
             isDamaged = false;
@@ -127,35 +149,7 @@ int main()
        
         if (IsKeyPressed(KEY_ENTER))
         {
-            int playerAnswer = convertedPlayerAnswer(inputBox);
-
-            if (equation.answer == playerAnswer)
-            {
-                for (size_t i = 0; i < 4; i++)
-                {
-                    inputBox.input[i] = ' ';
-                }
-                inputBox.numCount = 0;
-
-                for (size_t i = 0; i < towerStats.multiKill; i++)
-                {
-                    killEnemy(enemyList, towerStats, score, gold);
-                }
-            }
-            else
-            {
-				for (size_t i = 0; i < 4; i++)
-                {
-                    inputBox.input[i] = ' ';
-                }
-                inputBox.numCount = 0;
-
-                if(score > 0)
-                    score -= 10;
-            }
-            
-            equation = generateEquation();
-
+            equationHandler(inputBox, equation, towerStats, enemyList, score, gold);
         }
 
 

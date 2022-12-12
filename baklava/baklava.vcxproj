@@ -159,6 +159,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\buttonHandler.cpp" />
     <ClCompile Include="src\defeatScreen.cpp" />
     <ClCompile Include="src\enemies.cpp" />
     <ClCompile Include="src\equation.cpp" />
@@ -176,10 +177,11 @@
     <ClCompile Include="src\victoryScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="headerFiles\buttonHandler.h" />
     <ClInclude Include="headerFiles\enemies.h" />
     <ClInclude Include="headerFiles\equation.h" />
     <ClInclude Include="headerFiles\inputBox.h" />
-    <ClInclude Include="headerFiles\loseScreen.h" />
+    <ClInclude Include="headerFiles\defeatScreen.h" />
     <ClInclude Include="headerFiles\mainMenu.h" />
     <ClInclude Include="headerFiles\tower.h" />
     <ClInclude Include="headerFiles\upgradeMenu.h" />
