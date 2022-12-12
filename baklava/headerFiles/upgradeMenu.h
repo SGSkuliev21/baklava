@@ -1,6 +1,8 @@
 #pragma once
 #include "../headerFiles/buttonHandler.h"
 
+void openUpgradeMenu(Button& menuButton, Rectangle& menu, bool oc);
+
 /// Draw upgrade menu
 /// 
 /// Displayes the upgrade menu with the upgrade buttons inside.

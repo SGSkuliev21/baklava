@@ -3,6 +3,9 @@
 
 bool showDefeatScreen()
 {
+	//Transition Timer
+	int mmFadeTimer = 255;
+
 	//Load font and configure upscaling
 	Font mainFont = LoadFontEx("assets/fonts/MainFont.ttf", 54, NULL, 0);
 	SetTextureFilter(mainFont.texture, TEXTURE_FILTER_BILINEAR);
@@ -48,8 +51,16 @@ bool showDefeatScreen()
 		DrawTextEx(mainFont, "Try Again", Vector2({ (playButton.rec.x + (playButton.rec.width / 2)) - playButtonSize.x / 2 , (playButton.rec.y + (playButton.rec.height / 2)) - playButtonSize.y / 2 }), 54, 0, RAYWHITE);
 		DrawTextEx(mainFont, "Quit", Vector2({ (quitButton.rec.x + (quitButton.rec.width / 2)) - quitButtonSize.x / 2, (quitButton.rec.y + (quitButton.rec.height / 2)) - quitButtonSize.y / 2 }), 54, 0, RAYWHITE);
 
+		if (mmFadeTimer > 0)
+		{
+			mmFadeTimer -= 5;
+			DrawRectangle(0, 0, 1280, 720, CLITERAL(Color){ 0, 0, 0, (unsigned char)mmFadeTimer});
+		}
+
 		EndDrawing();
 	}
+
+	UnloadFont(mainFont);
 
 	return false;
 }

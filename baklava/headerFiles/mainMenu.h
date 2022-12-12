@@ -2,3 +2,5 @@
 #include "raylib.h"
 
 bool mainMenuLoop();
+
+bool fadeToGame();

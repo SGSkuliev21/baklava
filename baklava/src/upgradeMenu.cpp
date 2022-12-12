@@ -15,6 +15,26 @@ void drawUpgradeMenu(Button &upgradeDamageButton, Button &upgradeRegenButton, Bu
 	DrawText("Upgrade Multi Kill", 20, 178, 20, BLACK);
 }
 
+void openUpgradeMenu(Button& menuButton, Rectangle& menu, bool oc)
+{
+	if (oc)
+	{
+		if (menu.x <= 0)
+		{
+			menuButton.rec.x += 360.0f * GetFrameTime();
+			menu.x += 360.0f * GetFrameTime();
+		}
+	}
+	else
+	{
+		if (menu.x >= -324)
+		{
+			menuButton.rec.x -= 360.0f * GetFrameTime();
+			menu.x -= 360.0f * GetFrameTime();
+		}
+	}
+}
+
 void upgradeRegen(TowerStats &towerStats, int &gold, Button &upgradeRegenButton)
 {
 	if (CheckCollisionPointRec(GetMousePosition(), upgradeRegenButton.rec) && IsMouseButtonPressed(0))
