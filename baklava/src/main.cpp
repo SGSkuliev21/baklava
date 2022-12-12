@@ -37,7 +37,7 @@ int main()
     TowerStats towerStats = { 5.0f, 150.0f, 0.01f, 1, Vector3({3.0f, 9.0f, 3.0f}), Vector3({0.0f, 4.5f, 0.0f}) };
  
     // Initializing enemy system
-    const int enemyLimit = 6, debounceTimer = 0.8*fpsCap;
+    const int enemyLimit = 6, debounceTimer = 0.8f*fpsCap;
     std::vector<EnemyStats> enemyList;
     enemyList.reserve(enemyLimit);
     int enemyDebounce = 0;
@@ -61,11 +61,25 @@ int main()
     inputBox.input[4] = '\0';
     inputBox.textBox = {screenWidth / 2.0f - 20, 39, 100, 35};
 
+    //Define upgrade menu
     Rectangle upgradeMenu = { -324, 0, 320, 720 };
+
     Button upgradeMenuButton = { Rectangle{ -4, 39, 60, 206 }, 0, CLITERAL(Color){ 187, 187, 187, 255 }, CLITERAL(Color) { 167, 167, 167, 255 } };
-    Button upgradeDamageButton = { 18.0f, 115.0f, 200.0f, 25.0f };
-    Button upgradeRegenButton = { 18.0f, 145.0f, 200.0f, 25.0f };
-    Button upgradeMultiKillButton = { 18.0f, 175.0f, 200.0f, 25.0f };
+    
+    UpgradeButton upgradeDamageButton;
+    upgradeDamageButton.button = { Rectangle{ 18.0f, 115.0f, 200.0f, 60.0f }, 0, CLITERAL(Color){ 189, 0, 0, 255 }, CLITERAL(Color) { 159, 0, 0, 255 } };
+    upgradeDamageButton.price = 20;
+    upgradeDamageButton.timesBought = 0;
+
+    UpgradeButton upgradeRegenButton;
+    upgradeRegenButton.button = { Rectangle{ 18.0f, 180.0f, 200.0f, 60.0f }, 0, CLITERAL(Color){ 0, 155, 0, 255 }, CLITERAL(Color) { 0, 125, 0, 255 } };
+    upgradeRegenButton.price = 15;
+    upgradeRegenButton.timesBought = 0;
+
+    UpgradeButton upgradeMultiKillButton;
+    upgradeMultiKillButton.button = { Rectangle{ 18.0f, 245.0f, 200.0f, 60.0f }, 0, CLITERAL(Color){ 204, 204, 0, 255 }, CLITERAL(Color) { 174, 174, 0, 255 } };
+    upgradeMultiKillButton.price = 30;
+    upgradeMultiKillButton.timesBought = 0;
     
     bool currentMenuState = false;
 
@@ -92,7 +106,7 @@ int main()
     {
         frameCounter++;
 
-        if (mainWave.wave > 11)
+        if (mainWave.wave == 11)
         {
             fadeToGame();
             if (showVictoryScreen())
@@ -180,8 +194,8 @@ int main()
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
-        DrawRectangleGradientH(0, 0, 1280, 720, CLITERAL(Color){1, 97, 33, 255},CLITERAL(Color){2, 171, 58, 255} );
-        DrawRectangleGradientV(0, 0, 1280, 720, CLITERAL(Color){1, 97, 33, 255}, CLITERAL(Color) { 2, 171, 58, 255 });
+        DrawRectangleGradientH(0, 0, 1280, 720, CLITERAL(Color){ 2, 171, 58, 255 },CLITERAL(Color){ 1, 97, 33, 255 } );
+        DrawRectangleGradientV(0, 0, 1280, 720, CLITERAL(Color){ 2, 171, 58, 255 }, CLITERAL(Color) { 1, 97, 33, 255 });
        
         if (IsKeyPressed(KEY_ENTER))
         {
@@ -216,12 +230,6 @@ int main()
         DrawGrid(50, 5.0f);
         EndMode3D();
 
-
-        if (isDamaged)
-        {
-            DrawCircleGradient(screenWidth / 2.0f, screenHeight / 2.0f, 750, CLITERAL(Color){0, 0, 0, 0}, CLITERAL(Color) { 180, 0, 0, 100 });
-        }
-
         //Drawing the UI
         DrawTextEx(mainFont, TextFormat("%i %c %i = ", equation.firstNumber, operationSymbol, equation.secondNumber), Vector2({ (screenWidth / 2.0f) - 100, 40 }), 32, 0, WHITE);
         DrawTextEx(mainFont, TextFormat("Score: %i", score), Vector2({ 10, 50 }), 54, 0, WHITE);
@@ -236,21 +244,52 @@ int main()
         }
         if (upgradeMenu.x >= -324 && upgradeMenu.x <= 4)
         {
-            openUpgradeMenu(upgradeMenuButton, upgradeMenu, currentMenuState);
+            openUpgradeMenu(upgradeDamageButton.button, upgradeRegenButton.button, upgradeMultiKillButton.button, upgradeMenuButton, upgradeMenu, currentMenuState);
         }
         if (upgradeMenu.x < -324)
         {
             upgradeMenu.x = -324;
             upgradeMenuButton.rec.x = -4;
+            upgradeDamageButton.button.rec.x = -246;
+            upgradeRegenButton.button.rec.x = -246;
+            upgradeMultiKillButton.button.rec.x = -246;
         }
         if (upgradeMenu.x > 0)
         {
             upgradeMenu.x = 0;
             upgradeMenuButton.rec.x = 324;
+            upgradeDamageButton.button.rec.x = 78;
+            upgradeRegenButton.button.rec.x = 78;
+            upgradeMultiKillButton.button.rec.x = 78;
         }
 
         DrawRectangleRec(upgradeMenu, CLITERAL(Color){0, 0, 0, 120});
-        DrawTextPro(mainFont, "Upgrades", Vector2({ upgradeMenuButton.rec.x + 50, upgradeMenuButton.rec.y + 20}), Vector2({0.5f, 0.5f}), 90, 44, 0, DARKGRAY);
+        DrawTextPro(mainFont, "Upgrades", Vector2({ upgradeMenuButton.rec.x + 50, upgradeMenuButton.rec.y + upgradeMenuButton.rec.height / 10 }), Vector2({ 0.5f, 0.5f }), 90, 44, 0, DARKGRAY);
+        
+        if (currentMenuState)
+        {
+            setButtonState(upgradeDamageButton.button);
+            setButtonState(upgradeRegenButton.button);
+            setButtonState(upgradeMultiKillButton.button);
+
+            if (changeButtonByState(upgradeDamageButton.button, 200, true, true))
+            {
+                upgradeDamage(towerStats, gold, upgradeDamageButton);
+            }
+            DrawTextEx(mainFont, TextFormat("Damage Up %i: %i Gold", upgradeDamageButton.timesBought + 1, upgradeDamageButton.price), Vector2({ upgradeDamageButton.button.rec.x + 10, upgradeDamageButton.button.rec.y + upgradeDamageButton.button.rec.height / 6 }), 24, 0, RAYWHITE);
+
+            if (changeButtonByState(upgradeRegenButton.button, 200, true, true))
+            {
+                upgradeDamage(towerStats, gold, upgradeRegenButton);
+            }
+            DrawTextEx(mainFont, TextFormat("Regen Up %i: %i Gold", upgradeRegenButton.timesBought + 1, upgradeRegenButton.price), Vector2({ upgradeRegenButton.button.rec.x + 10, upgradeRegenButton.button.rec.y + upgradeRegenButton.button.rec.height / 6 }), 24, 0, RAYWHITE);
+
+            if (changeButtonByState(upgradeMultiKillButton.button, 200, true, true))
+            {
+                upgradeDamage(towerStats, gold, upgradeMultiKillButton);
+            }
+            DrawTextEx(mainFont, TextFormat("MultiKill Up %i: %i Gold", upgradeMultiKillButton.timesBought + 1, upgradeMultiKillButton.price), Vector2({ upgradeMultiKillButton.button.rec.x + 10, upgradeMultiKillButton.button.rec.y + upgradeMultiKillButton.button.rec.height / 6 }), 24, 0, RAYWHITE);
+        }
 
 
         Vector2 waveTextSize = MeasureTextEx(mainFont, TextFormat("Wave %i", mainWave.wave), 96, 0);
@@ -274,6 +313,11 @@ int main()
         DrawTextEx(mainFont, TextFormat("%i/%i", (int)towerStats.towerHealth, 150), Vector2({ screenWidth / 2 - hpTextSize.x / 2, screenHeight - 72 - hpTextSize.y / 2 }), 36, 0, RAYWHITE);
 
         DrawFPS(10, 10);
+
+        if (isDamaged)
+        {
+            DrawCircleGradient(screenWidth / 2.0f, screenHeight / 2.0f, 750, CLITERAL(Color){0, 0, 0, 0}, CLITERAL(Color) { 180, 0, 0, 100 });
+        }
 
         if (mmFadeTimer > 0)
         {

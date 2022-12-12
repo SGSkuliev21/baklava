@@ -61,7 +61,7 @@ bool mainMenuLoop()
 		ClearBackground(RAYWHITE);
 
 		//Draw the background gradient
-		DrawRectangleGradientH(0, 0, 1280, 720, CLITERAL(Color){2, 171, 58, 255}, CLITERAL(Color){1, 97, 33, 255});
+		DrawRectangleGradientH(0, 0, 1280, 720, CLITERAL(Color){ 2, 171, 58, 255 }, CLITERAL(Color){ 1, 97, 33, 255 });
 		DrawRectangleGradientV(0, 0, 1280, 720, CLITERAL(Color){ 2, 171, 58, 123 }, CLITERAL(Color){ 1, 97, 33, 123 });
 
 		//Draw the title

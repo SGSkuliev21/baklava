@@ -3,24 +3,15 @@
 #include "../headerFiles/upgradeMenu.h"
 #include "../headerFiles/buttonHandler.h"
 
-void drawUpgradeMenu(Button &upgradeDamageButton, Button &upgradeRegenButton, Button &upgradeMultiKillButton)
-{
-	DrawRectangleRec(Rectangle({ 0.0f, 110.0f, 250.0f, 100.0f }), CLITERAL(Color){0,0,0, 45});
-
-	DrawRectangleRec(upgradeDamageButton.rec, CLITERAL(Color){189, 0 , 0, 255});
-	DrawText("Upgrade Damage", 20, 118, 20, BLACK);
-	DrawRectangleRec(upgradeRegenButton.rec, CLITERAL(Color){0, 155, 0, 255});
-	DrawText("Upgrade Regen", 20, 148, 20, BLACK);
-	DrawRectangleRec(upgradeMultiKillButton.rec, CLITERAL(Color){204, 204, 0, 255});
-	DrawText("Upgrade Multi Kill", 20, 178, 20, BLACK);
-}
-
-void openUpgradeMenu(Button& menuButton, Rectangle& menu, bool oc)
+void openUpgradeMenu(Button& upgrade1, Button& upgrade2, Button& upgrade3, Button& menuButton, Rectangle& menu, bool oc)
 {
 	if (oc)
 	{
 		if (menu.x <= 0)
 		{
+			upgrade1.rec.x += 360.0f * GetFrameTime();
+			upgrade2.rec.x += 360.0f * GetFrameTime();
+			upgrade3.rec.x += 360.0f * GetFrameTime();
 			menuButton.rec.x += 360.0f * GetFrameTime();
 			menu.x += 360.0f * GetFrameTime();
 		}
@@ -29,70 +20,45 @@ void openUpgradeMenu(Button& menuButton, Rectangle& menu, bool oc)
 	{
 		if (menu.x >= -324)
 		{
+			upgrade1.rec.x -= 360.0f * GetFrameTime();
+			upgrade2.rec.x -= 360.0f * GetFrameTime();
+			upgrade3.rec.x -= 360.0f * GetFrameTime();
 			menuButton.rec.x -= 360.0f * GetFrameTime();
 			menu.x -= 360.0f * GetFrameTime();
 		}
 	}
 }
 
-void upgradeRegen(TowerStats &towerStats, int &gold, Button &upgradeRegenButton)
+void upgradeRegen(TowerStats &towerStats, int &gold, UpgradeButton &regen)
 {
-	if (CheckCollisionPointRec(GetMousePosition(), upgradeRegenButton.rec) && IsMouseButtonPressed(0))
+	if (gold >= regen.price)
 	{
-
-		if (gold >= 20)
-		{
-			towerStats.towerRegen += 0.005;
-			gold -= 20;
-		}
-	}
-
-
-	if (CheckCollisionPointRec(GetMousePosition(), upgradeRegenButton.rec))
-	{
-		DrawRectangleRec(upgradeRegenButton.rec, DARKGREEN);
-		DrawText("Upgrade Regen", 20, 148, 20, BLACK);
+		regen.timesBought++;
+		towerStats.towerRegen += 0.005;
+		gold -= regen.price;
 	}
 }
 
-void upgradeDamage(TowerStats& towerStats, int& gold, Button& upgradeDamageButton)
+void upgradeDamage(TowerStats& towerStats, int& gold, UpgradeButton& damage)
 {
-	if (CheckCollisionPointRec(GetMousePosition(), upgradeDamageButton.rec) && IsMouseButtonPressed(0))
+	if (gold >= damage.price)
 	{
-
-		if (gold >= 15)
-		{
-			towerStats.attackPower += 5;
-			gold -= 15;
-		}
-	}
-
-	if (CheckCollisionPointRec(GetMousePosition(), upgradeDamageButton.rec))
-	{
-		DrawRectangleRec(upgradeDamageButton.rec, CLITERAL(Color){139, 0, 0, 255});
-		DrawText("Upgrade Damage", 20, 118, 20, BLACK);
+		damage.timesBought++;
+		towerStats.attackPower += 5;
+		gold -= damage.price;
 	}
 }
 
-void upgradeMultiKill(TowerStats& towerStats, int& gold, Button& upgradeMultiKillButton)
+void upgradeMultiKill(TowerStats& towerStats, int& gold, UpgradeButton& multiKill)
 {
-	if (CheckCollisionPointRec(GetMousePosition(), upgradeMultiKillButton.rec) && IsMouseButtonPressed(0) && towerStats.multiKill < 3)
+	if (multiKill.timesBought == 3)
 	{
-		if (gold >= 30)
-		{
-			towerStats.multiKill++;
-			gold -= 30;
-		}
-
+		DrawText("You can only upgrade multi kill 3 times", 5, 210, 20, BLACK);
 	}
-	if (CheckCollisionPointRec(GetMousePosition(), upgradeMultiKillButton.rec))
+	else if (gold >= multiKill.price)
 	{
-		if (towerStats.multiKill == 3)
-		{
-			DrawText("You can only upgrade multi kill 3 times", 5, 210, 20, BLACK);
-		}
-		DrawRectangleRec(upgradeMultiKillButton.rec, CLITERAL(Color){139, 128, 0, 255});
-		DrawText("Upgrade Multi Kill", 20, 178, 20, BLACK);
+		multiKill.timesBought;
+		towerStats.multiKill++;
+		gold -= multiKill.price;
 	}
-
 }

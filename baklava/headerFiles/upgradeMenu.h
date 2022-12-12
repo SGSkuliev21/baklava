@@ -1,15 +1,14 @@
 #pragma once
 #include "../headerFiles/buttonHandler.h"
 
-void openUpgradeMenu(Button& menuButton, Rectangle& menu, bool oc);
+struct UpgradeButton
+{
+	Button button;
+	int timesBought;
+	int price;
+};
 
-/// Draw upgrade menu
-/// 
-/// Displayes the upgrade menu with the upgrade buttons inside.
-/// @param upgradeDamageButton custom struct that contains butttonPosition for the upgrade damage button
-/// @param upgradeRegenButton custom struct that contains butttonPosition for the upgrade regen button
-/// @param upgradeMultiKillButton custom struct that contains butttonPosition for the upgrade multi kill button
-void drawUpgradeMenu(Button& upgradeDamageButton, Button& upgradeRegenButton, Button& upgradeMultiKillButton);
+void openUpgradeMenu(Button& upgrade1, Button& upgrade2, Button& upgrade3, Button& menuButton, Rectangle& menu, bool oc);
 
 /// When right mouse button is pressed upgrade regen
 /// 
@@ -19,7 +18,7 @@ void drawUpgradeMenu(Button& upgradeDamageButton, Button& upgradeRegenButton, Bu
 /// @param upgradeDamageButton custom struct with the information for the upgrade regen button
 /// @see TowerStats
 /// @see Button
-void upgradeRegen(TowerStats& towerStats, int& gold, Button& upgradeRegenButton);
+void upgradeRegen(TowerStats& towerStats, int& gold, UpgradeButton& regen);
 
 /// When right mouse button is pressed upgrade damage
 /// 
@@ -29,7 +28,7 @@ void upgradeRegen(TowerStats& towerStats, int& gold, Button& upgradeRegenButton)
 /// @param upgradeRegenButton custom struct with the information for the damage regen button
 /// @see TowerStats
 /// @see Button
-void upgradeDamage(TowerStats& towerStats, int& gold, Button& upgradeDamageButton);
+void upgradeDamage(TowerStats& towerStats, int& gold, UpgradeButton& damage);
 
 /// When right mouse button is pressed upgrade multi kill
 /// 
@@ -39,4 +38,4 @@ void upgradeDamage(TowerStats& towerStats, int& gold, Button& upgradeDamageButto
 /// @param upgradeMultiKillButton custom struct with the information for the damage regen button
 /// @see TowerStats
 /// @see Button
-void upgradeMultiKill(TowerStats& towerStats, int& gold, Button& upgradeMultiKillButton);
+void upgradeMultiKill(TowerStats& towerStats, int& gold, UpgradeButton& multiKill);
