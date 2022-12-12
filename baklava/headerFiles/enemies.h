@@ -8,6 +8,7 @@ struct EnemyWave
 {
 	int wave;
 	int enemiesLeft;
+	int enemiesLeftAlive;
 };
 
 /// Stores all enemy stats
@@ -47,4 +48,4 @@ void drawEnemy(EnemyStats stats);
 /// @param score the player score. The score is incremented by 10 with every kill and decremented by 10 with every wrong equation.
 /// @param gold the player gold. The gold is incremented by 5 with every kill
 /// @see TowerStats
-void killEnemy(std::vector<EnemyStats>& enemyList, TowerStats& towerStats, int& score, int& gold);
+void killEnemy(EnemyWave& wave, std::vector<EnemyStats>& enemyList, TowerStats& towerStats, int& score, int& gold);

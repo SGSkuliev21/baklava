@@ -72,12 +72,12 @@ bool mainMenuLoop()
 		setButtonState(quitButton);
 
 		//Act according to user actions
-		if (changeButtonByState(playButton, 309, false))
+		if (changeButtonByState(playButton, 309, false, true))
 		{
 			if (fadeToGame()) return true;
 			else return false;
 		}
-		if (changeButtonByState(quitButton, 309, false)) return false;
+		if (changeButtonByState(quitButton, 309, false, true)) return false;
 
 		//Draw text over buttons
 		DrawTextEx(mainFont, "Play", Vector2({ playButton.rec.x + (playButton.rec.width / 12), playButton.rec.y + (playButton.rec.height / 4) }), 54, 0, RAYWHITE);

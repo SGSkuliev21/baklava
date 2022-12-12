@@ -23,7 +23,7 @@ void setButtonState(Button& button)
 	}
 }
 
-bool changeButtonByState(Button& button, float startWidth, bool editWidth)
+bool changeButtonByState(Button& button, float startWidth, bool editWidth, bool drawLines)
 {
 	if (button.state == 3)
 	{
@@ -52,12 +52,14 @@ bool changeButtonByState(Button& button, float startWidth, bool editWidth)
 			}
 		}
 		DrawRectangleRec(button.rec, button.color);
-		DrawRectangleLinesEx(button.rec, 3, RAYWHITE);
+		if (drawLines) DrawRectangleLinesEx(button.rec, 3, RAYWHITE);
+		else DrawRectangleLinesEx(button.rec, 3, GRAY);
 	}
 	if (button.state == 2)
 	{
 		DrawRectangleRec(button.rec, button.hoverColor);
-		DrawRectangleLinesEx(button.rec, 3, LIGHTGRAY);
+		if (drawLines) DrawRectangleLinesEx(button.rec, 3, WHITE);
+		else DrawRectangleLinesEx(button.rec, 3, LIGHTGRAY);
 	}
 
 	return false;

@@ -9,6 +9,7 @@
 #include "../headerFiles/mainMenu.h"
 #include "../headerFiles/buttonHandler.h"
 #include "../headerFiles/victoryScreen.h"
+#include "../headerFiles/defeatScreen.h"
 
 int main()
 {
@@ -16,7 +17,7 @@ int main()
     const int fpsCap = 60;
     const int screenWidth = 1280;
     const int screenHeight = 720;
-    int framesCounter = 0;
+    int frameCounter = 0;
     SetConfigFlags(FLAG_MSAA_4X_HINT);
     InitWindow(screenWidth, screenHeight, "Baklava");
 
@@ -29,7 +30,7 @@ int main()
     camera.projection = CAMERA_ORTHOGRAPHIC;
 
     // Initializing the tower stats: attack power, health, regen, multiKill, size and position
-    TowerStats towerStats = { 5.0f, 150.0f, 0.01f, 1, Vector3({3.0f, 9.0f, 3.0f}), Vector3({0.0f, 4.5f, 0.0f}) };
+    TowerStats towerStats = { 5.0f, 1.0f, 0.01f, 1, Vector3({3.0f, 9.0f, 3.0f}), Vector3({0.0f, 4.5f, 0.0f}) };
  
     // Initializing enemy system
     const int enemyLimit = 6, debounceTimer = 0.8*fpsCap;
@@ -44,7 +45,7 @@ int main()
     EnemyWave mainWave;
     mainWave.wave = 1;
     mainWave.enemiesLeft = 6;
-    int enemiesThisWave = 0;
+    mainWave.enemiesLeftAlive = mainWave.enemiesLeft;
     int waveTimer = 2 * fpsCap;
 
     // Generating equation
@@ -80,20 +81,45 @@ int main()
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
-        framesCounter++;
+        frameCounter++;
 
-        if (mainWave.wave == 2)
+        if (mainWave.wave > 10)
         {
             if (showVictoryScreen())
             {
                 mainWave.wave = 1;
-                enemiesThisWave = 6;
+                mainWave.enemiesLeft = 6;
+                mainWave.enemiesLeftAlive = mainWave.enemiesLeft;
+                waveTimer = 2 * fpsCap;
                 enemyList.clear();
                 score = 0;
                 gold = 0;
                 towerStats.multiKill = 1;
                 towerStats.towerRegen = 0.01f;
                 towerStats.attackPower = 5.0f;
+                towerStats.towerHealth = 150.0f;
+                inputBox.input[0] = '\0';
+            }
+            else
+            {
+                break;
+            }
+        }
+        if (towerStats.towerHealth <= 0.0f)
+        {
+            if (showDefeatScreen())
+            {
+                mainWave.wave = 1;
+                mainWave.enemiesLeft = 6;
+                mainWave.enemiesLeftAlive = mainWave.enemiesLeft;
+                waveTimer = 2 * fpsCap;
+                enemyList.clear();
+                score = 0;
+                gold = 0;
+                towerStats.multiKill = 1;
+                towerStats.towerRegen = 0.01f;
+                towerStats.attackPower = 5.0f;
+                towerStats.towerHealth = 150.0f;
                 inputBox.input[0] = '\0';
             }
             else
@@ -140,7 +166,7 @@ int main()
         //Regen
         if(towerStats.towerHealth <= 150.0f)
             towerStats.towerHealth += towerStats.towerRegen;
-       
+
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
@@ -149,13 +175,13 @@ int main()
        
         if (IsKeyPressed(KEY_ENTER))
         {
-            equationHandler(inputBox, equation, towerStats, enemyList, score, gold);
+            equationHandler(inputBox, equation, towerStats, mainWave, enemyList, score, gold);
         }
 
 
         BeginMode3D(camera);
 
-        if(framesCounter > 2 * fpsCap)
+        if(frameCounter > 2 * fpsCap)
         {
             for (size_t i = 0; i < enemyList.size(); i++)
             {
@@ -165,6 +191,7 @@ int main()
 
                 if (enemyList[i].linePos <= 1.8f)
                 {
+                    mainWave.enemiesLeftAlive--;
                     towerStats.towerHealth -= enemyList[i].damage;
                     enemyList.erase(enemyList.begin() + i);
                     isDamaged = true;

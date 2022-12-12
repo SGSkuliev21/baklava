@@ -12,4 +12,4 @@ struct Button
 
 void setButtonState(Button& button);
 
-bool changeButtonByState(Button& button, float startWidth, bool editWidth);
+bool changeButtonByState(Button& button, float startWidth, bool editWidth, bool drawLines);

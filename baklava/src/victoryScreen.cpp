@@ -33,6 +33,8 @@ bool showVictoryScreen()
 		//Draw the background gradient
 		DrawRectangleGradientH(0, 0, 1280, 720, CLITERAL(Color){2, 171, 58, 255}, CLITERAL(Color) { 1, 97, 33, 255 });
 		DrawRectangleGradientV(0, 0, 1280, 720, CLITERAL(Color){ 2, 171, 58, 123 }, CLITERAL(Color) { 1, 97, 33, 123 });
+
+		//Draw a rectangular border
 		DrawRectangleLinesEx(Rectangle({ 164, 92, 953, 536 }), 10,  RAYWHITE);
 
 		//Draw the title
@@ -43,11 +45,11 @@ bool showVictoryScreen()
 		setButtonState(quitButton);
 
 		//Act according to user actions
-		if (changeButtonByState(playButton, 292, true))
+		if (changeButtonByState(playButton, 292, true, true))
 		{
 			return true;
 		}
-		if (changeButtonByState(quitButton, 292, true)) return false;
+		if (changeButtonByState(quitButton, 292, true, true)) return false;
 
 		//Draw text over buttons
 		DrawTextEx(mainFont, "Play Again", Vector2({ (playButton.rec.x + (playButton.rec.width / 2)) - playButtonSize.x / 2 , (playButton.rec.y + (playButton.rec.height / 2)) - playButtonSize.y / 2 }), 54, 0, RAYWHITE);

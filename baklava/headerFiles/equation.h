@@ -19,4 +19,4 @@ struct Equation
 /// @see Equation
 Equation generateEquation();
 
-void equationHandler(InputBoxInfo& inputBox, Equation& equation, TowerStats towerStats, std::vector<EnemyStats>& enemyList, int& score, int& gold);
+void equationHandler(InputBoxInfo& inputBox, Equation& equation, TowerStats towerStats, EnemyWave& wave, std::vector<EnemyStats>& enemyList, int& score, int& gold);

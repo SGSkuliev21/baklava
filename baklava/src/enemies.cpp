@@ -48,11 +48,12 @@ void waveSpawnHandler(int& debounce, const int enemyLimit, EnemyWave& wave, std:
 		}
 		debounce--;
 	}
-	else if(waveTimer == 0)
+	else if(waveTimer <= 0 && wave.enemiesLeftAlive == 0)
 	{
 		wave.wave++;
 		waveTimer = 2 * fps;
 		wave.enemiesLeft = 6;
+		wave.enemiesLeftAlive = wave.enemiesLeft;
 	}
 	else
 	{
@@ -60,7 +61,7 @@ void waveSpawnHandler(int& debounce, const int enemyLimit, EnemyWave& wave, std:
 	}
 }
 
-void killEnemy(std::vector<EnemyStats>& enemyList, TowerStats &towerStats, int &score, int &gold)
+void killEnemy(EnemyWave& wave, std::vector<EnemyStats>& enemyList, TowerStats &towerStats, int &score, int &gold)
 {
 	int closestEnemy[2] = {99999, 0};
 
@@ -79,6 +80,7 @@ void killEnemy(std::vector<EnemyStats>& enemyList, TowerStats &towerStats, int &
 
 		if (enemyList[closestEnemy[1]].health < 0)
 		{ 
+			wave.enemiesLeftAlive--;
 			enemyList.erase(enemyList.begin() + closestEnemy[1]);
 			score += 10;
 			gold += 5;
