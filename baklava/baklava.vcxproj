@@ -160,6 +160,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\buttonHandler.cpp" />
+    <ClCompile Include="src\cameraRotation.cpp" />
     <ClCompile Include="src\defeatScreen.cpp" />
     <ClCompile Include="src\enemies.cpp" />
     <ClCompile Include="src\equation.cpp" />
@@ -179,6 +180,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headerFiles\buttonHandler.h" />
+    <ClInclude Include="headerFiles\cameraRotation.h" />
     <ClInclude Include="headerFiles\enemies.h" />
     <ClInclude Include="headerFiles\equation.h" />
     <ClInclude Include="headerFiles\inputBox.h" />

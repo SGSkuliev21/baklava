@@ -10,6 +10,7 @@
 #include "../headerFiles/victoryScreen.h"
 #include "../headerFiles/defeatScreen.h"
 #include "../headerFiles/rays.h"
+#include "../headerFiles/cameraRotation.h"
 
 int main()
 {
@@ -108,6 +109,8 @@ int main()
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
         frameCounter++;
+
+        HandleCameraRotation(camera);
 
         if (mainWave.wave == 11)
         {
