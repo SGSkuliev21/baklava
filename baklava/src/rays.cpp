@@ -1,8 +1,4 @@
-#include "raylib.h"
-#include <cmath>
-#include "../headerFiles/tower.h"
-#include "../headerFiles/enemies.h"
-#include "../headerFiles/rays.h"
+#include "pch.h"
 
 TowerRay createRay(Vector3 enemyPos)
 {

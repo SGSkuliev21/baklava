@@ -1,10 +1,4 @@
-#include "raylib.h"
-#include <vector>
-#include "../headerFiles/equation.h"
-#include "../headerFiles/inputBox.h"
-#include "../headerFiles/tower.h"
-#include "../headerFiles/enemies.h"
-#include "../headerFiles/rays.h"
+#include "pch.h"
 
 
 Equation generateEquation()

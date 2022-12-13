@@ -1,7 +1,4 @@
-#include "raylib.h"
-#include "../headerFiles/tower.h"
-#include "../headerFiles/upgradeMenu.h"
-#include "../headerFiles/buttonHandler.h"
+#include "pch.h"
 
 void openUpgradeMenu(Button& upgrade1, Button& upgrade2, Button& upgrade3, Button& menuButton, Rectangle& menu, bool oc)
 {

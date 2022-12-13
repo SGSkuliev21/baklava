@@ -1,5 +1,4 @@
-#include "raylib.h"
-#include "../headerFiles/buttonHandler.h"
+#include "pch.h"
 
 //Setting button state depending on mouse actions
 void setButtonState(Button& button)

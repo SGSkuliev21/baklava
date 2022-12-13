@@ -1,5 +1,4 @@
-#include <cmath>
-#include "raylib.h"
+#include "pch.h"
 
 // meant to be used in a game loop
 void HandleCameraRotation(Camera& camera)

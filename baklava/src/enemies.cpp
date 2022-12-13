@@ -1,7 +1,4 @@
-#include "raylib.h"
-#include "../headerFiles/enemies.h"
-#include "../headerFiles/rays.h"
-#include <vector>
+#include "pch.h"
 
 EnemyStats generateEnemy(EnemyWave &mainWave)
 {

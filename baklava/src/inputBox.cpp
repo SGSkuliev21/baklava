@@ -1,5 +1,4 @@
-#include "raylib.h"
-#include "../headerFiles/inputBox.h"
+#include "pch.h"
 
 
 void drawInputBox(InputBoxInfo &inputBox)

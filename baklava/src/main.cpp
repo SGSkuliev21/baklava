@@ -1,16 +1,4 @@
-#include <vector>
-#include "raylib.h"
-#include "../headerFiles/tower.h"
-#include "../headerFiles/enemies.h"
-#include "../headerFiles/equation.h"
-#include "../headerFiles/inputBox.h"
-#include "../headerFiles/upgradeMenu.h"
-#include "../headerFiles/mainMenu.h"
-#include "../headerFiles/buttonHandler.h"
-#include "../headerFiles/victoryScreen.h"
-#include "../headerFiles/defeatScreen.h"
-#include "../headerFiles/rays.h"
-#include "../headerFiles/cameraRotation.h"
+#include "pch.h"
 
 int main()
 {

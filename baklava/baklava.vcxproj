@@ -94,9 +94,11 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)raylib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)baklava\includes;$(SolutionDir)raylib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalHeaderUnitDependencies>
       </AdditionalHeaderUnitDependencies>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -111,9 +113,11 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)raylib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)baklava\includes;$(SolutionDir)raylib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalHeaderUnitDependencies>
       </AdditionalHeaderUnitDependencies>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,9 +132,11 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)raylib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)baklava\includes;$(SolutionDir)raylib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalHeaderUnitDependencies>
       </AdditionalHeaderUnitDependencies>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -146,9 +152,11 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)raylib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)baklava\includes;$(SolutionDir)raylib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalHeaderUnitDependencies>
       </AdditionalHeaderUnitDependencies>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -167,6 +175,16 @@
     <ClCompile Include="src\inputBox.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\mainMenu.cpp" />
+    <ClCompile Include="src\pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">pch.h</PrecompiledHeaderFile>
+    </ClCompile>
     <ClCompile Include="src\rays.cpp" />
     <ClCompile Include="src\tower.cpp">
       <AdditionalHeaderUnitDependencies Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -186,6 +204,7 @@
     <ClInclude Include="headerFiles\inputBox.h" />
     <ClInclude Include="headerFiles\defeatScreen.h" />
     <ClInclude Include="headerFiles\mainMenu.h" />
+    <ClInclude Include="headerFiles\pch.h" />
     <ClInclude Include="headerFiles\rays.h" />
     <ClInclude Include="headerFiles\tower.h" />
     <ClInclude Include="headerFiles\upgradeMenu.h" />
