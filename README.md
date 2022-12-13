@@ -46,6 +46,9 @@ A tower defense game where you need to solve mathematical equations to kill enem
 
 ## 📃 Documentation <a name="docs"></a>
 ### Code & Team Documentation
+[Code Documentation](https://baklavatd-docs.netlify.app/)
+
+[Team Documentation](https://github.com/SGSkuliev21/baklava/raw/main/docs/Baklava%20-%20Documentation.docx)
 
 ### QA Documentation
 
