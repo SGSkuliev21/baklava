@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BaklavaTD: C:/baklava/baklava/headerFiles/equation.h Source File</title>
+<title>BaklavaTD: C:/baklava/baklava/includes/equation.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -101,28 +101,43 @@ $(document).ready(function(){initNavTree('equation_8h_source.html',''); initResi
 </div><!--header-->
 <div class="contents">
 <a href="equation_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="struct_equation.html">    4</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_equation.html">Equation</a></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>{</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="struct_equation.html#a7cba3e5b8916ccd958fea220242c5436">    6</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_equation.html#a7cba3e5b8916ccd958fea220242c5436">firstNumber</a> = 0;</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="struct_equation.html#a4b53f1031d2629aee9a50370431a8063">    7</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_equation.html#a4b53f1031d2629aee9a50370431a8063">secondNumber</a> = 0;</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="struct_equation.html#a787abdfb1eb5a813ca008ee644a89cb5">    8</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_equation.html#a787abdfb1eb5a813ca008ee644a89cb5">operation</a> = 0;</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="struct_equation.html#acc2b40b7d1d7efe4751759e184cd4f87">    9</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_equation.html#acc2b40b7d1d7efe4751759e184cd4f87">answer</a> = 0;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>};</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><a class="code hl_struct" href="struct_equation.html">Equation</a> <a class="code hl_function" href="equation_8h.html#a3431edcf3cb12cc1e9313b76228596d3">generateEquation</a>();</div>
-<div class="ttc" id="aequation_8h_html_a3431edcf3cb12cc1e9313b76228596d3"><div class="ttname"><a href="equation_8h.html#a3431edcf3cb12cc1e9313b76228596d3">generateEquation</a></div><div class="ttdeci">Equation generateEquation()</div><div class="ttdoc">Generates an equation.</div><div class="ttdef"><b>Definition:</b> equation.cpp:6</div></div>
-<div class="ttc" id="astruct_equation_html"><div class="ttname"><a href="struct_equation.html">Equation</a></div><div class="ttdoc">Stores all equation info.</div><div class="ttdef"><b>Definition:</b> equation.h:5</div></div>
-<div class="ttc" id="astruct_equation_html_a4b53f1031d2629aee9a50370431a8063"><div class="ttname"><a href="struct_equation.html#a4b53f1031d2629aee9a50370431a8063">Equation::secondNumber</a></div><div class="ttdeci">int secondNumber</div><div class="ttdef"><b>Definition:</b> equation.h:7</div></div>
-<div class="ttc" id="astruct_equation_html_a787abdfb1eb5a813ca008ee644a89cb5"><div class="ttname"><a href="struct_equation.html#a787abdfb1eb5a813ca008ee644a89cb5">Equation::operation</a></div><div class="ttdeci">int operation</div><div class="ttdef"><b>Definition:</b> equation.h:8</div></div>
-<div class="ttc" id="astruct_equation_html_a7cba3e5b8916ccd958fea220242c5436"><div class="ttname"><a href="struct_equation.html#a7cba3e5b8916ccd958fea220242c5436">Equation::firstNumber</a></div><div class="ttdeci">int firstNumber</div><div class="ttdef"><b>Definition:</b> equation.h:6</div></div>
-<div class="ttc" id="astruct_equation_html_acc2b40b7d1d7efe4751759e184cd4f87"><div class="ttname"><a href="struct_equation.html#acc2b40b7d1d7efe4751759e184cd4f87">Equation::answer</a></div><div class="ttdeci">int answer</div><div class="ttdef"><b>Definition:</b> equation.h:9</div></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="input_box_8h.html">inputBox.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="tower_8h.html">tower.h</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="enemies_8h.html">enemies.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="rays_8h.html">rays.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="struct_equation.html">    8</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_equation.html">Equation</a></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="struct_equation.html#a7cba3e5b8916ccd958fea220242c5436">   10</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_equation.html#a7cba3e5b8916ccd958fea220242c5436">firstNumber</a> = 0;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="struct_equation.html#a4b53f1031d2629aee9a50370431a8063">   11</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_equation.html#a4b53f1031d2629aee9a50370431a8063">secondNumber</a> = 0;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="struct_equation.html#a787abdfb1eb5a813ca008ee644a89cb5">   12</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_equation.html#a787abdfb1eb5a813ca008ee644a89cb5">operation</a> = 0;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="struct_equation.html#acc2b40b7d1d7efe4751759e184cd4f87">   13</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_equation.html#acc2b40b7d1d7efe4751759e184cd4f87">answer</a> = 0;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>};</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><a class="code hl_struct" href="struct_equation.html">Equation</a> <a class="code hl_function" href="equation_8h.html#a3431edcf3cb12cc1e9313b76228596d3">generateEquation</a>();</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keywordtype">void</span> <a class="code hl_function" href="equation_8h.html#a0fa58f04c78eb2c3c433c60f375a1c5b">equationHandler</a>(<a class="code hl_struct" href="struct_input_box_info.html">InputBoxInfo</a>&amp; inputBox, <a class="code hl_struct" href="struct_equation.html">Equation</a>&amp; equation, <a class="code hl_struct" href="struct_tower_stats.html">TowerStats</a> towerStats, <a class="code hl_struct" href="struct_enemy_wave.html">EnemyWave</a>&amp; wave, std::vector&lt;EnemyStats&gt;&amp; enemyList, std::vector&lt;TowerRay&gt;&amp; rayList, <span class="keywordtype">int</span>&amp; score, <span class="keywordtype">int</span>&amp; gold);</div>
+<div class="ttc" id="aenemies_8h_html"><div class="ttname"><a href="enemies_8h.html">enemies.h</a></div></div>
+<div class="ttc" id="aequation_8h_html_a0fa58f04c78eb2c3c433c60f375a1c5b"><div class="ttname"><a href="equation_8h.html#a0fa58f04c78eb2c3c433c60f375a1c5b">equationHandler</a></div><div class="ttdeci">void equationHandler(InputBoxInfo &amp;inputBox, Equation &amp;equation, TowerStats towerStats, EnemyWave &amp;wave, std::vector&lt; EnemyStats &gt; &amp;enemyList, std::vector&lt; TowerRay &gt; &amp;rayList, int &amp;score, int &amp;gold)</div><div class="ttdef"><b>Definition:</b> equation.cpp:29</div></div>
+<div class="ttc" id="aequation_8h_html_a3431edcf3cb12cc1e9313b76228596d3"><div class="ttname"><a href="equation_8h.html#a3431edcf3cb12cc1e9313b76228596d3">generateEquation</a></div><div class="ttdeci">Equation generateEquation()</div><div class="ttdoc">Generates an equation.</div><div class="ttdef"><b>Definition:</b> equation.cpp:4</div></div>
+<div class="ttc" id="ainput_box_8h_html"><div class="ttname"><a href="input_box_8h.html">inputBox.h</a></div></div>
+<div class="ttc" id="arays_8h_html"><div class="ttname"><a href="rays_8h.html">rays.h</a></div></div>
+<div class="ttc" id="astruct_enemy_wave_html"><div class="ttname"><a href="struct_enemy_wave.html">EnemyWave</a></div><div class="ttdoc">Stores the wave info.</div><div class="ttdef"><b>Definition:</b> enemies.h:9</div></div>
+<div class="ttc" id="astruct_equation_html"><div class="ttname"><a href="struct_equation.html">Equation</a></div><div class="ttdoc">Stores all equation info.</div><div class="ttdef"><b>Definition:</b> equation.h:9</div></div>
+<div class="ttc" id="astruct_equation_html_a4b53f1031d2629aee9a50370431a8063"><div class="ttname"><a href="struct_equation.html#a4b53f1031d2629aee9a50370431a8063">Equation::secondNumber</a></div><div class="ttdeci">int secondNumber</div><div class="ttdef"><b>Definition:</b> equation.h:11</div></div>
+<div class="ttc" id="astruct_equation_html_a787abdfb1eb5a813ca008ee644a89cb5"><div class="ttname"><a href="struct_equation.html#a787abdfb1eb5a813ca008ee644a89cb5">Equation::operation</a></div><div class="ttdeci">int operation</div><div class="ttdef"><b>Definition:</b> equation.h:12</div></div>
+<div class="ttc" id="astruct_equation_html_a7cba3e5b8916ccd958fea220242c5436"><div class="ttname"><a href="struct_equation.html#a7cba3e5b8916ccd958fea220242c5436">Equation::firstNumber</a></div><div class="ttdeci">int firstNumber</div><div class="ttdef"><b>Definition:</b> equation.h:10</div></div>
+<div class="ttc" id="astruct_equation_html_acc2b40b7d1d7efe4751759e184cd4f87"><div class="ttname"><a href="struct_equation.html#acc2b40b7d1d7efe4751759e184cd4f87">Equation::answer</a></div><div class="ttdeci">int answer</div><div class="ttdef"><b>Definition:</b> equation.h:13</div></div>
+<div class="ttc" id="astruct_input_box_info_html"><div class="ttname"><a href="struct_input_box_info.html">InputBoxInfo</a></div><div class="ttdoc">Stores the information required for displaying the input box.</div><div class="ttdef"><b>Definition:</b> inputBox.h:5</div></div>
+<div class="ttc" id="astruct_tower_stats_html"><div class="ttname"><a href="struct_tower_stats.html">TowerStats</a></div><div class="ttdoc">Stores the stats for the tower.</div><div class="ttdef"><b>Definition:</b> tower.h:5</div></div>
+<div class="ttc" id="atower_8h_html"><div class="ttname"><a href="tower_8h.html">tower.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_8fb4c3d753091c057723c5b314bab557.html">baklava</a></li><li class="navelem"><a class="el" href="dir_584b6295cfda2585e975977cbd61b5d4.html">baklava</a></li><li class="navelem"><a class="el" href="dir_c646a099bb88bcd87d2d4059a6a363cb.html">headerFiles</a></li><li class="navelem"><a class="el" href="equation_8h.html">equation.h</a></li>
+    <li class="navelem"><a class="el" href="dir_8fb4c3d753091c057723c5b314bab557.html">baklava</a></li><li class="navelem"><a class="el" href="dir_584b6295cfda2585e975977cbd61b5d4.html">baklava</a></li><li class="navelem"><a class="el" href="dir_ecb197e54c74b5ad064bda6dec3fb2ca.html">includes</a></li><li class="navelem"><a class="el" href="equation_8h.html">equation.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>

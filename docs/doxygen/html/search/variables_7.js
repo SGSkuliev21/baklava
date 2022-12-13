@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['linepos_0',['linePos',['../struct_enemy_stats.html#acecd696362eba4121aa8070c07f6feb9',1,'EnemyStats']]]
+  ['input_0',['input',['../struct_input_box_info.html#a92af0ba278f99c490eed86b4a1515f7d',1,'InputBoxInfo']]]
 ];

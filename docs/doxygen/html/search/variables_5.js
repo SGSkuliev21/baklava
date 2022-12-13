@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['health_0',['health',['../struct_enemy_stats.html#ad28185b2dc8145e872b46758990e8f0d',1,'EnemyStats']]]
+  ['firstnumber_0',['firstNumber',['../struct_equation.html#a7cba3e5b8916ccd958fea220242c5436',1,'Equation']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['mainwave_0',['mainwave',['../struct_enemy_stats.html#a74d623a010a0046616c57b5f09a9879c',1,'EnemyStats']]],
-  ['multikill_1',['multiKill',['../struct_tower_stats.html#a3c61e6ce3dd440b292d755618a7eedae',1,'TowerStats']]]
+  ['lifespan_0',['lifespan',['../struct_tower_ray.html#acd9e59bce81a9cff8b164d47d89d9a4a',1,'TowerRay']]],
+  ['linepos_1',['linePos',['../struct_enemy_stats.html#acecd696362eba4121aa8070c07f6feb9',1,'EnemyStats']]]
 ];

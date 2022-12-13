@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['inputbox_2ecpp_0',['inputBox.cpp',['../input_box_8cpp.html',1,'']]],
-  ['inputbox_2eh_1',['inputBox.h',['../input_box_8h.html',1,'']]]
+  ['camerarotation_2ecpp_0',['cameraRotation.cpp',['../camera_rotation_8cpp.html',1,'']]],
+  ['camerarotation_2eh_1',['cameraRotation.h',['../camera_rotation_8h.html',1,'']]]
 ];

@@ -1,8 +1,8 @@
 var upgrade_menu_8h =
 [
-    [ "Button", "struct_button.html", "struct_button" ],
-    [ "drawUpgradeMenu", "upgrade_menu_8h.html#a612dcfde4726863c04480c9e6b335b8b", null ],
-    [ "upgradeDamage", "upgrade_menu_8h.html#a65350983aab165c1686a75c8e77dbd6b", null ],
-    [ "upgradeMultiKill", "upgrade_menu_8h.html#a2dc0d05517de9bb08c7163cba97313bf", null ],
-    [ "upgradeRegen", "upgrade_menu_8h.html#aa230f940b4eac953f16a15fa8165a56e", null ]
+    [ "UpgradeButton", "struct_upgrade_button.html", "struct_upgrade_button" ],
+    [ "openUpgradeMenu", "upgrade_menu_8h.html#abc39e34da38650be6c254e339f9bfe81", null ],
+    [ "upgradeDamage", "upgrade_menu_8h.html#ad223d147fc8af0db7496123324e14e77", null ],
+    [ "upgradeMultiKill", "upgrade_menu_8h.html#aafe3818a4f674ea7a2b97f028e53c5f4", null ],
+    [ "upgradeRegen", "upgrade_menu_8h.html#adc12a95e628652bd0b5582cdfa84f962", null ]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['buttonposition_0',['buttonPosition',['../struct_button.html#a9f8b10129f0ceec0b31952c8e2636aac',1,'Button']]]
+  ['button_0',['button',['../struct_upgrade_button.html#a4226083d39d98d0ef295e219302c1dea',1,'UpgradeButton']]]
 ];

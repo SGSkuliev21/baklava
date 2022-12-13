@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>BaklavaTD: C:/baklava/baklava/headerFiles/upgradeMenu.h File Reference</title>
+<title>BaklavaTD: C:/baklava/baklava/includes/upgradeMenu.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -103,54 +103,73 @@ $(document).ready(function(){initNavTree('upgrade_menu_8h.html',''); initResizab
   <div class="headertitle"><div class="title">upgradeMenu.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
+<div class="textblock"><code>#include &quot;<a class="el" href="button_handler_8h_source.html">buttonHandler.h</a>&quot;</code><br />
+</div>
 <p><a href="upgrade_menu_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_button.html">Button</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the button info.  <a href="struct_button.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_upgrade_button.html">UpgradeButton</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Special button that stores upgrade specific data.  <a href="struct_upgrade_button.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a612dcfde4726863c04480c9e6b335b8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="upgrade_menu_8h.html#a612dcfde4726863c04480c9e6b335b8b">drawUpgradeMenu</a> (<a class="el" href="struct_button.html">Button</a> &amp;upgradeDamageButton, <a class="el" href="struct_button.html">Button</a> &amp;upgradeRegenButton, <a class="el" href="struct_button.html">Button</a> &amp;upgradeMultiKillButton)</td></tr>
-<tr class="memdesc:a612dcfde4726863c04480c9e6b335b8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw upgrade menu.  <a href="upgrade_menu_8h.html#a612dcfde4726863c04480c9e6b335b8b">More...</a><br /></td></tr>
-<tr class="separator:a612dcfde4726863c04480c9e6b335b8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa230f940b4eac953f16a15fa8165a56e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="upgrade_menu_8h.html#aa230f940b4eac953f16a15fa8165a56e">upgradeRegen</a> (<a class="el" href="struct_tower_stats.html">TowerStats</a> &amp;towerStats, int &amp;gold, <a class="el" href="struct_button.html">Button</a> &amp;upgradeRegenButton)</td></tr>
-<tr class="memdesc:aa230f940b4eac953f16a15fa8165a56e"><td class="mdescLeft">&#160;</td><td class="mdescRight">When right mouse button is pressed upgrade regen.  <a href="upgrade_menu_8h.html#aa230f940b4eac953f16a15fa8165a56e">More...</a><br /></td></tr>
-<tr class="separator:aa230f940b4eac953f16a15fa8165a56e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65350983aab165c1686a75c8e77dbd6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="upgrade_menu_8h.html#a65350983aab165c1686a75c8e77dbd6b">upgradeDamage</a> (<a class="el" href="struct_tower_stats.html">TowerStats</a> &amp;towerStats, int &amp;gold, <a class="el" href="struct_button.html">Button</a> &amp;upgradeDamageButton)</td></tr>
-<tr class="memdesc:a65350983aab165c1686a75c8e77dbd6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">When right mouse button is pressed upgrade damage.  <a href="upgrade_menu_8h.html#a65350983aab165c1686a75c8e77dbd6b">More...</a><br /></td></tr>
-<tr class="separator:a65350983aab165c1686a75c8e77dbd6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2dc0d05517de9bb08c7163cba97313bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="upgrade_menu_8h.html#a2dc0d05517de9bb08c7163cba97313bf">upgradeMultiKill</a> (<a class="el" href="struct_tower_stats.html">TowerStats</a> &amp;towerStats, int &amp;gold, <a class="el" href="struct_button.html">Button</a> &amp;upgradeMultiKillButton)</td></tr>
-<tr class="memdesc:a2dc0d05517de9bb08c7163cba97313bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">When right mouse button is pressed upgrade multi kill.  <a href="upgrade_menu_8h.html#a2dc0d05517de9bb08c7163cba97313bf">More...</a><br /></td></tr>
-<tr class="separator:a2dc0d05517de9bb08c7163cba97313bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc39e34da38650be6c254e339f9bfe81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="upgrade_menu_8h.html#abc39e34da38650be6c254e339f9bfe81">openUpgradeMenu</a> (<a class="el" href="struct_button.html">Button</a> &amp;upgrade1, <a class="el" href="struct_button.html">Button</a> &amp;upgrade2, <a class="el" href="struct_button.html">Button</a> &amp;upgrade3, <a class="el" href="struct_button.html">Button</a> &amp;menuButton, Rectangle &amp;menu, bool oc)</td></tr>
+<tr class="memdesc:abc39e34da38650be6c254e339f9bfe81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens up a sidebar with upgrades.  <a href="upgrade_menu_8h.html#abc39e34da38650be6c254e339f9bfe81">More...</a><br /></td></tr>
+<tr class="separator:abc39e34da38650be6c254e339f9bfe81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc12a95e628652bd0b5582cdfa84f962"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="upgrade_menu_8h.html#adc12a95e628652bd0b5582cdfa84f962">upgradeRegen</a> (<a class="el" href="struct_tower_stats.html">TowerStats</a> &amp;towerStats, int &amp;gold, <a class="el" href="struct_upgrade_button.html">UpgradeButton</a> &amp;regen)</td></tr>
+<tr class="memdesc:adc12a95e628652bd0b5582cdfa84f962"><td class="mdescLeft">&#160;</td><td class="mdescRight">Upgrade regen.  <a href="upgrade_menu_8h.html#adc12a95e628652bd0b5582cdfa84f962">More...</a><br /></td></tr>
+<tr class="separator:adc12a95e628652bd0b5582cdfa84f962"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad223d147fc8af0db7496123324e14e77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="upgrade_menu_8h.html#ad223d147fc8af0db7496123324e14e77">upgradeDamage</a> (<a class="el" href="struct_tower_stats.html">TowerStats</a> &amp;towerStats, int &amp;gold, <a class="el" href="struct_upgrade_button.html">UpgradeButton</a> &amp;damage)</td></tr>
+<tr class="memdesc:ad223d147fc8af0db7496123324e14e77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Upgrade damage.  <a href="upgrade_menu_8h.html#ad223d147fc8af0db7496123324e14e77">More...</a><br /></td></tr>
+<tr class="separator:ad223d147fc8af0db7496123324e14e77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafe3818a4f674ea7a2b97f028e53c5f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="upgrade_menu_8h.html#aafe3818a4f674ea7a2b97f028e53c5f4">upgradeMultiKill</a> (<a class="el" href="struct_tower_stats.html">TowerStats</a> &amp;towerStats, int &amp;gold, <a class="el" href="struct_upgrade_button.html">UpgradeButton</a> &amp;multiKill)</td></tr>
+<tr class="memdesc:aafe3818a4f674ea7a2b97f028e53c5f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Upgrade multi kill.  <a href="upgrade_menu_8h.html#aafe3818a4f674ea7a2b97f028e53c5f4">More...</a><br /></td></tr>
+<tr class="separator:aafe3818a4f674ea7a2b97f028e53c5f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a612dcfde4726863c04480c9e6b335b8b" name="a612dcfde4726863c04480c9e6b335b8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a612dcfde4726863c04480c9e6b335b8b">&#9670;&#160;</a></span>drawUpgradeMenu()</h2>
+<a id="abc39e34da38650be6c254e339f9bfe81" name="abc39e34da38650be6c254e339f9bfe81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc39e34da38650be6c254e339f9bfe81">&#9670;&#160;</a></span>openUpgradeMenu()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void drawUpgradeMenu </td>
+          <td class="memname">void openUpgradeMenu </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_button.html">Button</a> &amp;&#160;</td>
-          <td class="paramname"><em>upgradeDamageButton</em>, </td>
+          <td class="paramname"><em>upgrade1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="struct_button.html">Button</a> &amp;&#160;</td>
-          <td class="paramname"><em>upgradeRegenButton</em>, </td>
+          <td class="paramname"><em>upgrade2</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="struct_button.html">Button</a> &amp;&#160;</td>
-          <td class="paramname"><em>upgradeMultiKillButton</em>&#160;</td>
+          <td class="paramname"><em>upgrade3</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_button.html">Button</a> &amp;&#160;</td>
+          <td class="paramname"><em>menuButton</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Rectangle &amp;&#160;</td>
+          <td class="paramname"><em>menu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>oc</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -160,20 +179,24 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Draw upgrade menu. </p>
-<p >Displayes the upgrade menu with the upgrade buttons inside. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Opens up a sidebar with upgrades. </p>
+<p >This function opens up a sidebar with all available upgrades and closes it at the press of a button </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">upgradeDamageButton</td><td>custom struct that contains butttonPosition for the upgrade damage button </td></tr>
-    <tr><td class="paramname">upgradeRegenButton</td><td>custom struct that contains butttonPosition for the upgrade regen button </td></tr>
-    <tr><td class="paramname">upgradeMultiKillButton</td><td>custom struct that contains butttonPosition for the upgrade multi kill button </td></tr>
+    <tr><td class="paramname">upgrade1</td><td>dmg up button </td></tr>
+    <tr><td class="paramname">upgrade2</td><td>regen up button </td></tr>
+    <tr><td class="paramname">upgrade3</td><td>multikill up button </td></tr>
+    <tr><td class="paramname">menuButton</td><td>the button that opens and closes the menu </td></tr>
+    <tr><td class="paramname">menu</td><td>the menu the buttons are on </td></tr>
+    <tr><td class="paramname">oc</td><td>a parameter that decides whether the menu should be open or not </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="struct_button.html">Button</a> </dd></dl>
 
 </div>
 </div>
-<a id="a65350983aab165c1686a75c8e77dbd6b" name="a65350983aab165c1686a75c8e77dbd6b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a65350983aab165c1686a75c8e77dbd6b">&#9670;&#160;</a></span>upgradeDamage()</h2>
+<a id="ad223d147fc8af0db7496123324e14e77" name="ad223d147fc8af0db7496123324e14e77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad223d147fc8af0db7496123324e14e77">&#9670;&#160;</a></span>upgradeDamage()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -193,8 +216,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="struct_button.html">Button</a> &amp;&#160;</td>
-          <td class="paramname"><em>upgradeDamageButton</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_upgrade_button.html">UpgradeButton</a> &amp;&#160;</td>
+          <td class="paramname"><em>damage</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -204,8 +227,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>When right mouse button is pressed upgrade damage. </p>
-<p >When the right mouse button is pressed and the player has 15 gold the towerAttackPower is incremented by 5 every time and the gold is decremented by 15. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Upgrade damage. </p>
+<p >When the player has 15 gold the towerAttackPower is incremented by 5 every time and the gold is decremented by 15. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">towerStats</td><td>the stats of the tower </td></tr>
     <tr><td class="paramname">gold</td><td>the avalible gold </td></tr>
@@ -215,12 +238,12 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="struct_tower_stats.html" title="Stores the stats for the tower.">TowerStats</a> </dd>
 <dd>
-<a class="el" href="struct_button.html" title="Stores the button info.">Button</a> </dd></dl>
+<a class="el" href="struct_upgrade_button.html" title="Special button that stores upgrade specific data.">UpgradeButton</a> </dd></dl>
 
 </div>
 </div>
-<a id="a2dc0d05517de9bb08c7163cba97313bf" name="a2dc0d05517de9bb08c7163cba97313bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2dc0d05517de9bb08c7163cba97313bf">&#9670;&#160;</a></span>upgradeMultiKill()</h2>
+<a id="aafe3818a4f674ea7a2b97f028e53c5f4" name="aafe3818a4f674ea7a2b97f028e53c5f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafe3818a4f674ea7a2b97f028e53c5f4">&#9670;&#160;</a></span>upgradeMultiKill()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -240,8 +263,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="struct_button.html">Button</a> &amp;&#160;</td>
-          <td class="paramname"><em>upgradeMultiKillButton</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_upgrade_button.html">UpgradeButton</a> &amp;&#160;</td>
+          <td class="paramname"><em>multiKill</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -251,8 +274,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>When right mouse button is pressed upgrade multi kill. </p>
-<p >When the right mouse button is pressed, the player has 35 gold and multiKill is less than 3 the multi is incremented by 1 every time and the gold is decremented by 35. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Upgrade multi kill. </p>
+<p >When the player has 35 gold and multiKill is less than 3 the multi is incremented by 1 every time and the gold is decremented by 35. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">towerStats</td><td>the stats of the tower </td></tr>
     <tr><td class="paramname">gold</td><td>the avalible gold </td></tr>
@@ -262,12 +285,12 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="struct_tower_stats.html" title="Stores the stats for the tower.">TowerStats</a> </dd>
 <dd>
-<a class="el" href="struct_button.html" title="Stores the button info.">Button</a> </dd></dl>
+<a class="el" href="struct_upgrade_button.html" title="Special button that stores upgrade specific data.">UpgradeButton</a> </dd></dl>
 
 </div>
 </div>
-<a id="aa230f940b4eac953f16a15fa8165a56e" name="aa230f940b4eac953f16a15fa8165a56e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa230f940b4eac953f16a15fa8165a56e">&#9670;&#160;</a></span>upgradeRegen()</h2>
+<a id="adc12a95e628652bd0b5582cdfa84f962" name="adc12a95e628652bd0b5582cdfa84f962"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc12a95e628652bd0b5582cdfa84f962">&#9670;&#160;</a></span>upgradeRegen()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -287,8 +310,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="struct_button.html">Button</a> &amp;&#160;</td>
-          <td class="paramname"><em>upgradeRegenButton</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_upgrade_button.html">UpgradeButton</a> &amp;&#160;</td>
+          <td class="paramname"><em>regen</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -298,8 +321,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>When right mouse button is pressed upgrade regen. </p>
-<p >When the right mouse button is pressed and the player has 20 gold the towerRegen is incremented by 0.005 every time and the gold is decremented by 20. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Upgrade regen. </p>
+<p >When the player has 20 gold the towerRegen is incremented by 0.005 every time and the gold is decremented by 20. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">towerStats</td><td>the stats of the tower </td></tr>
     <tr><td class="paramname">gold</td><td>the avalible gold </td></tr>
@@ -309,7 +332,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="struct_tower_stats.html" title="Stores the stats for the tower.">TowerStats</a> </dd>
 <dd>
-<a class="el" href="struct_button.html" title="Stores the button info.">Button</a> </dd></dl>
+<a class="el" href="struct_upgrade_button.html" title="Special button that stores upgrade specific data.">UpgradeButton</a> </dd></dl>
 
 </div>
 </div>
@@ -318,7 +341,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_8fb4c3d753091c057723c5b314bab557.html">baklava</a></li><li class="navelem"><a class="el" href="dir_584b6295cfda2585e975977cbd61b5d4.html">baklava</a></li><li class="navelem"><a class="el" href="dir_c646a099bb88bcd87d2d4059a6a363cb.html">headerFiles</a></li><li class="navelem"><a class="el" href="upgrade_menu_8h.html">upgradeMenu.h</a></li>
+    <li class="navelem"><a class="el" href="dir_8fb4c3d753091c057723c5b314bab557.html">baklava</a></li><li class="navelem"><a class="el" href="dir_584b6295cfda2585e975977cbd61b5d4.html">baklava</a></li><li class="navelem"><a class="el" href="dir_ecb197e54c74b5ad064bda6dec3fb2ca.html">includes</a></li><li class="navelem"><a class="el" href="upgrade_menu_8h.html">upgradeMenu.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.5 </li>
   </ul>
 </div>

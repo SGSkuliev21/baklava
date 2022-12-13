@@ -102,26 +102,25 @@ $(document).ready(function(){initNavTree('enemies_8cpp.html',''); initResizable(
   <div class="headertitle"><div class="title">enemies.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;raylib.h&quot;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &quot;<a class="el" href="enemies_8h_source.html">../headerFiles/enemies.h</a>&quot;</code><br />
-<code>#include &lt;vector&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="pch_8h_source.html">pch.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a3462bad34f87bbc2e97700ce4c17b6ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_enemy_stats.html">EnemyStats</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enemies_8cpp.html#a3462bad34f87bbc2e97700ce4c17b6ea">generateEnemy</a> (<a class="el" href="struct_enemy_wave.html">EnemyWave</a> &amp;mainWave)</td></tr>
 <tr class="memdesc:a3462bad34f87bbc2e97700ce4c17b6ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates Enemy.  <a href="enemies_8cpp.html#a3462bad34f87bbc2e97700ce4c17b6ea">More...</a><br /></td></tr>
 <tr class="separator:a3462bad34f87bbc2e97700ce4c17b6ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a844c6658501559bfe7c5bfb0faccd828"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enemies_8cpp.html#a844c6658501559bfe7c5bfb0faccd828">killEnemy</a> (std::vector&lt; <a class="el" href="struct_enemy_stats.html">EnemyStats</a> &gt; &amp;enemyList, <a class="el" href="struct_tower_stats.html">TowerStats</a> &amp;towerStats, int &amp;score, int &amp;gold)</td></tr>
-<tr class="memdesc:a844c6658501559bfe7c5bfb0faccd828"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kill Enemy.  <a href="enemies_8cpp.html#a844c6658501559bfe7c5bfb0faccd828">More...</a><br /></td></tr>
-<tr class="separator:a844c6658501559bfe7c5bfb0faccd828"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a700b1b2ac7f26ebeb350e42339d4712b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enemies_8cpp.html#a700b1b2ac7f26ebeb350e42339d4712b">drawEnemy</a> (<a class="el" href="struct_enemy_stats.html">EnemyStats</a> stats)</td></tr>
-<tr class="memdesc:a700b1b2ac7f26ebeb350e42339d4712b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function with is used for displaying enemies on the screen.  <a href="enemies_8cpp.html#a700b1b2ac7f26ebeb350e42339d4712b">More...</a><br /></td></tr>
-<tr class="separator:a700b1b2ac7f26ebeb350e42339d4712b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb6e12f1a6aff07d15d5de82d9179fe5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enemies_8cpp.html#adb6e12f1a6aff07d15d5de82d9179fe5">waveSpawnHandler</a> (int &amp;debounce, const int enemyLimit, <a class="el" href="struct_enemy_wave.html">EnemyWave</a> &amp;wave, std::vector&lt; <a class="el" href="struct_enemy_stats.html">EnemyStats</a> &gt; &amp;enemyList, int &amp;waveTimer, const int fps)</td></tr>
+<tr class="separator:adb6e12f1a6aff07d15d5de82d9179fe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b69a955bcc502c56b9d2872fe622283"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enemies_8cpp.html#a8b69a955bcc502c56b9d2872fe622283">drawEnemy</a> (<a class="el" href="struct_enemy_stats.html">EnemyStats</a> &amp;stats)</td></tr>
+<tr class="memdesc:a8b69a955bcc502c56b9d2872fe622283"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function which is used for displaying enemies on the screen.  <a href="enemies_8cpp.html#a8b69a955bcc502c56b9d2872fe622283">More...</a><br /></td></tr>
+<tr class="separator:a8b69a955bcc502c56b9d2872fe622283"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd28adf3484df787ccc1ddec6d6f2986"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enemies_8cpp.html#acd28adf3484df787ccc1ddec6d6f2986">killEnemy</a> (<a class="el" href="struct_enemy_wave.html">EnemyWave</a> &amp;wave, std::vector&lt; <a class="el" href="struct_enemy_stats.html">EnemyStats</a> &gt; &amp;enemyList, std::vector&lt; <a class="el" href="struct_tower_ray.html">TowerRay</a> &gt; &amp;rayList, <a class="el" href="struct_tower_stats.html">TowerStats</a> &amp;towerStats, int &amp;score, int &amp;gold)</td></tr>
+<tr class="memdesc:acd28adf3484df787ccc1ddec6d6f2986"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kill Enemy.  <a href="enemies_8cpp.html#acd28adf3484df787ccc1ddec6d6f2986">More...</a><br /></td></tr>
+<tr class="separator:acd28adf3484df787ccc1ddec6d6f2986"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a700b1b2ac7f26ebeb350e42339d4712b" name="a700b1b2ac7f26ebeb350e42339d4712b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a700b1b2ac7f26ebeb350e42339d4712b">&#9670;&#160;</a></span>drawEnemy()</h2>
+<a id="a8b69a955bcc502c56b9d2872fe622283" name="a8b69a955bcc502c56b9d2872fe622283"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b69a955bcc502c56b9d2872fe622283">&#9670;&#160;</a></span>drawEnemy()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -129,17 +128,17 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void drawEnemy </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_enemy_stats.html">EnemyStats</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_enemy_stats.html">EnemyStats</a> &amp;&#160;</td>
           <td class="paramname"><em>stats</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>A function with is used for displaying enemies on the screen. </p>
-<p >This function draws enemies on the screen based on the enemy's stats </p><dl class="params"><dt>Parameters</dt><dd>
+<p>A function which is used for displaying enemies on the screen. </p>
+<p >This function draws enemies on the screen based on their stats </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">stats</td><td>custam made struct with contains information about the enemy </td></tr>
+    <tr><td class="paramname">stats</td><td>custom made struct which contains information about the enemy </td></tr>
   </table>
   </dd>
 </dl>
@@ -174,8 +173,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a844c6658501559bfe7c5bfb0faccd828" name="a844c6658501559bfe7c5bfb0faccd828"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a844c6658501559bfe7c5bfb0faccd828">&#9670;&#160;</a></span>killEnemy()</h2>
+<a id="acd28adf3484df787ccc1ddec6d6f2986" name="acd28adf3484df787ccc1ddec6d6f2986"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd28adf3484df787ccc1ddec6d6f2986">&#9670;&#160;</a></span>killEnemy()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -183,8 +182,20 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void killEnemy </td>
           <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_enemy_wave.html">EnemyWave</a> &amp;&#160;</td>
+          <td class="paramname"><em>wave</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">std::vector&lt; <a class="el" href="struct_enemy_stats.html">EnemyStats</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>enemyList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="struct_tower_ray.html">TowerRay</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rayList</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -213,7 +224,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Kill Enemy. </p>
-<p >This function kills enemies based on their position. First determines the closest enemy from the list of enemies and then subtracts from his health the tower damage. </p><dl class="params"><dt>Parameters</dt><dd>
+<p >This function kills enemies based on their position. First it determines the closest enemy from the list of enemies and then subtracts the tower damage from its health. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">enemyList</td><td>the list with all enemies </td></tr>
     <tr><td class="paramname">towerStats</td><td>the stats of the tower </td></tr>
@@ -223,6 +234,58 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="struct_tower_stats.html" title="Stores the stats for the tower.">TowerStats</a> </dd></dl>
+
+</div>
+</div>
+<a id="adb6e12f1a6aff07d15d5de82d9179fe5" name="adb6e12f1a6aff07d15d5de82d9179fe5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb6e12f1a6aff07d15d5de82d9179fe5">&#9670;&#160;</a></span>waveSpawnHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void waveSpawnHandler </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>debounce</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>enemyLimit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_enemy_wave.html">EnemyWave</a> &amp;&#160;</td>
+          <td class="paramname"><em>wave</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="struct_enemy_stats.html">EnemyStats</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>enemyList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>waveTimer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>fps</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

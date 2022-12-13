@@ -1,7 +1,7 @@
 var upgrade_menu_8cpp =
 [
-    [ "drawUpgradeMenu", "upgrade_menu_8cpp.html#a612dcfde4726863c04480c9e6b335b8b", null ],
-    [ "upgradeDamage", "upgrade_menu_8cpp.html#a65350983aab165c1686a75c8e77dbd6b", null ],
-    [ "upgradeMultiKill", "upgrade_menu_8cpp.html#a2dc0d05517de9bb08c7163cba97313bf", null ],
-    [ "upgradeRegen", "upgrade_menu_8cpp.html#aa230f940b4eac953f16a15fa8165a56e", null ]
+    [ "openUpgradeMenu", "upgrade_menu_8cpp.html#abc39e34da38650be6c254e339f9bfe81", null ],
+    [ "upgradeDamage", "upgrade_menu_8cpp.html#ad223d147fc8af0db7496123324e14e77", null ],
+    [ "upgradeMultiKill", "upgrade_menu_8cpp.html#aafe3818a4f674ea7a2b97f028e53c5f4", null ],
+    [ "upgradeRegen", "upgrade_menu_8cpp.html#adc12a95e628652bd0b5582cdfa84f962", null ]
 ];
