@@ -66,17 +66,13 @@ bool mainMenuLoop()
 		//Draw the title
 		DrawTextEx(mainFont, "Baklava TD", Vector2({ 640 - MeasureTextEx(mainFont, "Baklava TD", 54, 0).x / 2, 51 }), 54, 0, RAYWHITE);
 
-		//Get the state of each button
-		setButtonState(playButton);
-		setButtonState(quitButton);
-
 		//Act according to user actions
-		if (changeButtonByState(playButton, 309, false, true))
+		if (handleButton(playButton, 309, false, true))
 		{
 			if (fadeToGame()) return true;
 			else return false;
 		}
-		if (changeButtonByState(quitButton, 309, false, true)) return false;
+		if (handleButton(quitButton, 309, false, true)) return false;
 
 		//Draw text over buttons
 		DrawTextEx(mainFont, "Play", Vector2({ playButton.rec.x + (playButton.rec.width / 12), playButton.rec.y + (playButton.rec.height / 4) }), 54, 0, RAYWHITE);

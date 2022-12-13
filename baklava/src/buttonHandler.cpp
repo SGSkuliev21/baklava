@@ -22,6 +22,7 @@ void setButtonState(Button& button)
 	}
 }
 
+//Changing the button depending on the state assigned by the function above
 bool changeButtonByState(Button& button, float startWidth, bool editWidth, bool drawLines)
 {
 	if (button.state == 3)
@@ -62,4 +63,10 @@ bool changeButtonByState(Button& button, float startWidth, bool editWidth, bool 
 	}
 
 	return false;
+}
+
+bool handleButton(Button& button, float startWidth, bool editWidth, bool drawLines)
+{
+	setButtonState(button);
+	return changeButtonByState(button, startWidth, editWidth, drawLines);
 }

@@ -26,3 +26,5 @@ void setButtonState(Button& button);
 /// @return The function returns true if the button has been pressed and false otherwise
 /// @see Button
 bool changeButtonByState(Button& button, float startWidth, bool editWidth, bool drawLines);
+
+bool handleButton(Button& button, float startWidth, bool editWidth, bool drawLines);

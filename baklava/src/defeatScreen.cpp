@@ -35,16 +35,12 @@ bool showDefeatScreen()
 		//Draw the title
 		DrawTextEx(mainFont, "You died!", Vector2({ 640 - MeasureTextEx(mainFont, "You died!", 54, 0).x / 2, 152 }), 54, 0, RED);
 
-		//Get the state of each button
-		setButtonState(playButton);
-		setButtonState(quitButton);
-
 		//Act according to user actions
-		if (changeButtonByState(playButton, 292, true, false))
+		if (handleButton(playButton, 292, true, false))
 		{
 			return true;
 		}
-		if (changeButtonByState(quitButton, 292, true, false)) return false;
+		if (handleButton(quitButton, 292, true, false)) return false;
 
 		//Draw text over buttons
 		DrawTextEx(mainFont, "Try Again", Vector2({ (playButton.rec.x + (playButton.rec.width / 2)) - playButtonSize.x / 2 , (playButton.rec.y + (playButton.rec.height / 2)) - playButtonSize.y / 2 }), 54, 0, RAYWHITE);

@@ -1,6 +1,6 @@
 #include "pch.h"
 
-bool showVictoryScreen()
+bool showVictoryScreen(int score)
 {
 
 	//Transition Timer
@@ -43,16 +43,16 @@ bool showVictoryScreen()
 		//Draw the title
 		DrawTextEx(mainFont, "You won!", Vector2({ 640 - MeasureTextEx(mainFont, "You won!", 54, 0).x / 2, 152 }), 54, 0, RAYWHITE);
 
-		//Get the state of each button
-		setButtonState(playButton);
-		setButtonState(quitButton);
+		//Draw the score
+
+		DrawTextEx(mainFont, TextFormat("Score: %i", score), Vector2({ 640 - MeasureTextEx(mainFont, TextFormat("Score: %i", score), 54, 0).x / 2, 280 }), 54, 0, RAYWHITE);
 
 		//Act according to user actions
-		if (changeButtonByState(playButton, 292, true, true))
+		if (handleButton(playButton, 292, true, true))
 		{
 			return true;
 		}
-		if (changeButtonByState(quitButton, 292, true, true)) return false;
+		if (handleButton(quitButton, 292, true, true)) return false;
 
 		//Draw text over buttons
 		DrawTextEx(mainFont, "Play Again", Vector2({ (playButton.rec.x + (playButton.rec.width / 2)) - playButtonSize.x / 2 , (playButton.rec.y + (playButton.rec.height / 2)) - playButtonSize.y / 2 }), 54, 0, RAYWHITE);

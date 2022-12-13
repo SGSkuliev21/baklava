@@ -1,4 +1,5 @@
 #include "pch.h"
+#include <iostream>
 
 
 Equation generateEquation()
@@ -8,18 +9,18 @@ Equation generateEquation()
 	equationInfo.firstNumber = GetRandomValue(0,10);
 	equationInfo.secondNumber = GetRandomValue(0,10);
 	
-	equationInfo.operation = GetRandomValue(0, 2);
+	int operation = GetRandomValue(0, 2);
 
 	switch (equationInfo.operation)
 	{
 		case 0:
-			equationInfo.answer = equationInfo.firstNumber + equationInfo.secondNumber;
+            equationInfo.answer = equationInfo.firstNumber + equationInfo.secondNumber; equationInfo.operation = '+';
 			break;
 		case 1:
-			equationInfo.answer = equationInfo.firstNumber - equationInfo.secondNumber;
+			equationInfo.answer = equationInfo.firstNumber - equationInfo.secondNumber; equationInfo.operation = '-';
 			break;
 		case 2:
-			equationInfo.answer = equationInfo.firstNumber * equationInfo.secondNumber;
+			equationInfo.answer = equationInfo.firstNumber * equationInfo.secondNumber; equationInfo.operation = '*';
 			break;
 	}
 
@@ -56,4 +57,16 @@ void equationHandler(InputBoxInfo& inputBox, Equation& equation, TowerStats towe
     }
 
     equation = generateEquation();
+}
+
+void drawEquation(Equation& equation, Font& font)
+{
+    //Draw box
+    DrawRectangleRec(Rectangle{ 920, 40, 300, 90 }, RAYWHITE);
+
+    //Draw border
+    DrawRectangleLinesEx(Rectangle{ 920, 40, 300, 90 }, 4, BLACK);
+
+    //Draw Equation
+    DrawTextEx(font, TextFormat("%i %c %i = ", equation.firstNumber, equation.operation, equation.secondNumber), Vector2({ 940, 56 }), 52, 0, BLACK);
 }

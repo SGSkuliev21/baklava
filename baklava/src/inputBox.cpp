@@ -1,7 +1,7 @@
 #include "pch.h"
 
 
-void drawInputBox(InputBoxInfo &inputBox)
+void drawInputBox(InputBoxInfo& inputBox, Equation& equation, Font& font)
 {
 		int pressedKey = GetCharPressed();
 
@@ -25,8 +25,9 @@ void drawInputBox(InputBoxInfo &inputBox)
 			inputBox.input[inputBox.numCount] = '\0';
 		}
 
-	DrawRectangleRec(inputBox.textBox, LIGHTGRAY);
-	DrawText(inputBox.input, (int)inputBox.textBox.x + 4, (int)inputBox.textBox.y + 4, 30, BLACK);
+		Vector2 textPos = Vector2{ inputBox.textBox.x + MeasureTextEx(font, TextFormat("%i %c %i", equation.firstNumber, equation.operation, equation.secondNumber), 54, 0).x, inputBox.textBox.y };
+
+		DrawTextEx(font, inputBox.input, textPos, 52, 0, BLACK);
 
 }
 
