@@ -95,7 +95,7 @@ void killEnemy(EnemyWave& wave, std::vector<EnemyStats>& enemyList, std::vector<
 		{ 
 			wave.enemiesLeftAlive--;
 			enemyList.erase(enemyList.begin() + closestEnemy[1]);
-			score += 10;
+			score += 5;
 			gold += 5;
 		}
 	}

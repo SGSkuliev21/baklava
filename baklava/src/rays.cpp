@@ -14,6 +14,10 @@ TowerRay createRay(Vector3 enemyPos)
 bool drawRay(TowerRay& ray)
 {
 	DrawLine3D(ray.origin, ray.target, DARKPURPLE);
+	DrawLine3D(Vector3({ ray.origin.x + 0.2f, ray.origin.y, ray.origin.z }), ray.target, DARKPURPLE);
+	DrawLine3D(Vector3({ ray.origin.x - 0.2f, ray.origin.y, ray.origin.z }), ray.target, DARKPURPLE);
+	DrawLine3D(Vector3({ ray.origin.x, ray.origin.y, ray.origin.z + 0.2f }), ray.target, DARKPURPLE);
+	DrawLine3D(Vector3({ ray.origin.x, ray.origin.y, ray.origin.z + 0.2f }), ray.target, DARKPURPLE);
 	ray.lifespan--;
 	if (ray.lifespan == 0) return true;
 	else return false;

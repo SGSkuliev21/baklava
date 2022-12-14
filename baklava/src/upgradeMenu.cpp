@@ -50,6 +50,7 @@ void upgradeRegen(TowerStats &towerStats, int &gold, UpgradeButton &regen)
 		regen.timesBought++;
 		towerStats.towerRegen += 0.005;
 		gold -= regen.price;
+		regen.price += 5;
 	}
 }
 
@@ -60,6 +61,7 @@ void upgradeDamage(TowerStats& towerStats, int& gold, UpgradeButton& damage)
 		damage.timesBought++;
 		towerStats.attackPower += 5;
 		gold -= damage.price;
+		damage.price += 10;
 	}
 }
 
@@ -70,5 +72,6 @@ void upgradeMultiKill(TowerStats& towerStats, int& gold, UpgradeButton& multiKil
 		multiKill.timesBought++;
 		towerStats.multiKill++;
 		gold -= multiKill.price;
+		multiKill.price += 15;
 	}
 }

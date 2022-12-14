@@ -33,6 +33,8 @@ void equationHandler(InputBoxInfo& inputBox, Equation& equation, TowerStats towe
 
     if (equation.answer == playerAnswer)
     {
+        score += 5;
+
         for (size_t i = 0; i < 4; i++)
         {
             inputBox.input[i] = ' ';
