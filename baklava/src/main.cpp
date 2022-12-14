@@ -237,13 +237,13 @@ int main()
         {
             upgradeDamage(towerStats, gold, upgradeDamageButton);
         }
-        DrawTextEx(mainFont, TextFormat("Damage Up %i: %i Gold", upgradeDamageButton.timesBought + 1, upgradeDamageButton.price), Vector2({ upgradeDamageButton.button.rec.x + 10, upgradeDamageButton.button.rec.y + upgradeDamageButton.button.rec.height / 6 }), 24, 0, RAYWHITE);
+        DrawTextEx(mainFont, TextFormat("Damage %i: %i Gold", upgradeDamageButton.timesBought + 1, upgradeDamageButton.price), Vector2({ upgradeDamageButton.button.rec.x + 10, upgradeDamageButton.button.rec.y + upgradeDamageButton.button.rec.height / 6 }), 24, 0, RAYWHITE);
 
         if (handleButton(upgradeRegenButton.button, 210, true, true))
         {
             upgradeRegen(towerStats, gold, upgradeRegenButton);
         }
-        DrawTextEx(mainFont, TextFormat("Regen Up %i: %i Gold", upgradeRegenButton.timesBought + 1, upgradeRegenButton.price), Vector2({ upgradeRegenButton.button.rec.x + 10, upgradeRegenButton.button.rec.y + upgradeRegenButton.button.rec.height / 6 }), 24, 0, RAYWHITE);
+        DrawTextEx(mainFont, TextFormat("Regen %i: %i Gold", upgradeRegenButton.timesBought + 1, upgradeRegenButton.price), Vector2({ upgradeRegenButton.button.rec.x + 10, upgradeRegenButton.button.rec.y + upgradeRegenButton.button.rec.height / 6 }), 24, 0, RAYWHITE);
 
         if (upgradeMultiKillButton.timesBought < 3 && handleButton(upgradeMultiKillButton.button, 210, true, true))
         {
@@ -253,7 +253,7 @@ int main()
 
         if (upgradeMultiKillButton.timesBought < 3)
         {
-            DrawTextEx(mainFont, TextFormat("MultiKill Up %i: %i Gold", upgradeMultiKillButton.timesBought + 1, upgradeMultiKillButton.price), Vector2({ upgradeMultiKillButton.button.rec.x + 10, upgradeMultiKillButton.button.rec.y + upgradeMultiKillButton.button.rec.height / 6 }), 24, 0, RAYWHITE);
+            DrawTextEx(mainFont, TextFormat("MultiKill %i: %i Gold", upgradeMultiKillButton.timesBought + 1, upgradeMultiKillButton.price), Vector2({ upgradeMultiKillButton.button.rec.x + 10, upgradeMultiKillButton.button.rec.y + upgradeMultiKillButton.button.rec.height / 6 }), 24, 0, RAYWHITE);
         }
         else
         {
