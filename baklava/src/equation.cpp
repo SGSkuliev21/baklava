@@ -1,5 +1,4 @@
 #include "pch.h"
-#include <iostream>
 
 
 Equation generateEquation()
@@ -10,7 +9,7 @@ Equation generateEquation()
 	equationInfo.secondNumber = GetRandomValue(0,10);
 	
 	int operation = GetRandomValue(0, 2);
-    std::cout << operation;
+
 	switch (operation)
 	{
 		case 0:
