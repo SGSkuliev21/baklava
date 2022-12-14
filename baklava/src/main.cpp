@@ -284,8 +284,6 @@ int main()
         DrawRectangle((screenWidth / 2.0f - (150 * 3) / 2) + 5, screenHeight - 95, towerStats.towerHealth * 3 - 10, 35, RED);
         DrawTextEx(mainFont, TextFormat("%i/%i", (int)towerStats.towerHealth, 150), Vector2({ screenWidth / 2 - hpTextSize.x / 2, screenHeight - 72 - hpTextSize.y / 2 }), 36, 0, RAYWHITE);
 
-        DrawFPS(10, 10);
-
         drawEquation(equation, mainFont);
         drawInputBox(inputBox, equation, mainFont);
 
