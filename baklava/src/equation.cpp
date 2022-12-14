@@ -10,8 +10,8 @@ Equation generateEquation()
 	equationInfo.secondNumber = GetRandomValue(0,10);
 	
 	int operation = GetRandomValue(0, 2);
-
-	switch (equationInfo.operation)
+    std::cout << operation;
+	switch (operation)
 	{
 		case 0:
             equationInfo.answer = equationInfo.firstNumber + equationInfo.secondNumber; equationInfo.operation = '+';
