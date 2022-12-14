@@ -5,7 +5,6 @@
 <div align="center"> 
 
 ![GitHub milestones](https://img.shields.io/github/milestones/all/SGSkuliev21/baklava) 
-![GitHub contributors (via allcontributors.org)](https://img.shields.io/github/all-contributors/SGSkuliev21/baklava/main)
 ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/SGSkuliev21/baklava)
 
 </div>
