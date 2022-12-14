@@ -42,7 +42,6 @@ int main()
     int waveTimer = 2 * fpsCap;
 
     // Generating equation
-    char operationSymbol = ' ';
     Equation equation = generateEquation();
         
     //Defining the variable for the text box
@@ -100,7 +99,7 @@ int main()
 
         HandleCameraRotation(camera);
 
-        if (mainWave.wave == 11)
+        if (mainWave.wave == 1)
         {
             fadeToGame();
             if (showVictoryScreen(score))
