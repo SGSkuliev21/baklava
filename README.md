@@ -27,8 +27,10 @@ A tower defense game where you need to solve mathematical equations to kill enem
 [Team Documentation](https://github.com/SGSkuliev21/baklava/raw/main/docs/Baklava%20-%20Documentation.docx)
 
 ### QA Documentation
+[QA Documentation](https://github.com/SGSkuliev21/baklava/raw/main/docs/Baklava_-_QA_Documentation.xlsx)
 
 ### Presentation
+[Presentation](https://github.com/SGSkuliev21/baklava/raw/main/docs/Baklava%20-%20Presentation.pptx)
 
 ## 🚀 How to run <a name="install"></a>
 *The following instructions are going to show you how to set up the project*
