@@ -1,0 +1,2 @@
+emcc -o game.html ./baklava/src/buttonHandler.cpp ./baklava/src/cameraRotation.cpp ./baklava/src/defeatScreen.cpp ./baklava/src/enemies.cpp ./baklava/src/equation.cpp ./baklava/src/inputBox.cpp ./baklava/src/mainMenu.cpp ./baklava/src/pch.cpp ./baklava/src/rays.cpp ./baklava/src/tower.cpp ./baklava/src/upgradeMenu.cpp ./baklava/src/victoryScreen.cpp ./baklava/src/main.cpp -Os -Wall ./vendor/raylib/lib/libraylib.a -I./baklava/includes -I./vendor/raylib/include -L./vendor/raylib/lib -s USE_GLFW=3 -s ASYNCIFY -DPLATFORM_WEB
+
