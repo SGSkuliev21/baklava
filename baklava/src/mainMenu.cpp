@@ -2,10 +2,10 @@
 
 bool fadeToGame()
 {
-	Rectangle fadeRec1 = { -1920, 0, 1920, 190 };
-	Rectangle fadeRec2 = { 1280, 190, 1920, 190 };
-	Rectangle fadeRec3 = { -1920, 370, 1920, 190 };
-	Rectangle fadeRec4 = { 1280, 530, 1920, 190 };
+	Rectangle fadeRec1 = { GetScreenWidth() * -1, 0, GetScreenWidth(), GetScreenHeight() / 4};
+	Rectangle fadeRec2 = { GetScreenWidth(), GetScreenHeight() / 4, GetScreenWidth(), GetScreenHeight() / 4};
+	Rectangle fadeRec3 = { GetScreenWidth() * -1, GetScreenHeight() / 4 * 2, GetScreenWidth(), GetScreenHeight() / 4};
+	Rectangle fadeRec4 = { GetScreenWidth(), GetScreenHeight() / 4 * 3, GetScreenWidth(), GetScreenHeight() / 4};
 
 	bool closeFlag = false;
 
@@ -60,11 +60,11 @@ bool mainMenuLoop()
 		ClearBackground(RAYWHITE);
 
 		//Draw the background gradient
-		DrawRectangleGradientH(0, 0, 1280, 720, CLITERAL(Color){ 2, 171, 58, 255 }, CLITERAL(Color){ 1, 97, 33, 255 });
-		DrawRectangleGradientV(0, 0, 1280, 720, CLITERAL(Color){ 2, 171, 58, 123 }, CLITERAL(Color){ 1, 97, 33, 123 });
+		DrawRectangleGradientH(0, 0, GetScreenWidth(), GetScreenHeight(), CLITERAL(Color){ 2, 171, 58, 255 }, CLITERAL(Color) { 1, 97, 33, 255 });
+		DrawRectangleGradientV(0, 0, GetScreenWidth(), GetScreenHeight(), CLITERAL(Color){ 2, 171, 58, 123 }, CLITERAL(Color) { 1, 97, 33, 123 });
 
 		//Draw the title
-		DrawTextEx(mainFont, "Baklava TD", Vector2({ 640 - MeasureTextEx(mainFont, "Baklava TD", 54, 0).x / 2, 51 }), 54, 0, RAYWHITE);
+		DrawTextEx(mainFont, "Baklava TD", Vector2({ GetScreenWidth() / 2 - MeasureTextEx(mainFont, "Baklava TD", 78, 0).x / 2, 51}), 78, 0, RAYWHITE);
 
 		//Act according to user actions
 		if (handleButton(playButton, 309, false, true))

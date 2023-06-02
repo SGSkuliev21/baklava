@@ -12,7 +12,7 @@ bool showVictoryScreen(int score)
 
 	//Declare the play button
 	Button playButton;
-	playButton.rec = { 235, 431, 292, 113 };
+	playButton.rec = { GetScreenWidth() / 3.6f, GetScreenHeight() / 1.7f, 292, 113 };
 	playButton.state = 0;
 	playButton.color = CLITERAL(Color) { 194, 51, 51, 255 };
 	playButton.hoverColor = CLITERAL(Color) { 164, 21, 21, 255 };
@@ -20,7 +20,7 @@ bool showVictoryScreen(int score)
 	
 	//Declare the quit button
 	Button quitButton;
-	quitButton.rec = { 753, 431, 292, 113 };
+	quitButton.rec = { GetScreenWidth() / 1.7f, GetScreenHeight() / 1.7f, 292, 113 };
 	quitButton.state = 0;
 	quitButton.color = CLITERAL(Color) { 158, 47, 197, 255 };
 	quitButton.hoverColor = CLITERAL(Color) { 138, 17, 167, 255 };
@@ -34,18 +34,18 @@ bool showVictoryScreen(int score)
 		ClearBackground(RAYWHITE);
 
 		//Draw the background gradient
-		DrawRectangleGradientH(0, 0, 1280, 720, CLITERAL(Color){2, 171, 58, 255}, CLITERAL(Color) { 1, 97, 33, 255 });
-		DrawRectangleGradientV(0, 0, 1280, 720, CLITERAL(Color){ 2, 171, 58, 123 }, CLITERAL(Color) { 1, 97, 33, 123 });
+		DrawRectangleGradientH(0, 0, GetScreenWidth(), GetScreenHeight(), CLITERAL(Color){2, 171, 58, 255}, CLITERAL(Color) { 1, 97, 33, 255 });
+		DrawRectangleGradientV(0, 0, GetScreenWidth(), GetScreenHeight(), CLITERAL(Color){ 2, 171, 58, 123 }, CLITERAL(Color) { 1, 97, 33, 123 });
 
 		//Draw a rectangular border
-		DrawRectangleLinesEx(Rectangle({ 164, 92, 953, 536 }), 10,  RAYWHITE);
+		DrawRectangleLinesEx(Rectangle({ GetScreenWidth() / 30.0f, GetScreenHeight() / 24.0f, GetScreenWidth() / 1.075f, GetScreenHeight()/ 1.1f}), 10, RAYWHITE);
 
 		//Draw the title
-		DrawTextEx(mainFont, "You won!", Vector2({ 640 - MeasureTextEx(mainFont, "You won!", 54, 0).x / 2, 152 }), 54, 0, RAYWHITE);
+		DrawTextEx(mainFont, "You won!", Vector2({ GetScreenWidth()/2 - MeasureTextEx(mainFont, "You won!", 78, 0).x / 2, 152}), 78, 0, RAYWHITE);
 
 		//Draw the score
 
-		DrawTextEx(mainFont, TextFormat("Score: %i", score), Vector2({ 640 - MeasureTextEx(mainFont, TextFormat("Score: %i", score), 54, 0).x / 2, 280 }), 54, 0, RAYWHITE);
+		DrawTextEx(mainFont, TextFormat("Score: %i", score), Vector2({ GetScreenWidth()/2 - MeasureTextEx(mainFont, TextFormat("Score: %i", score), 78, 0).x / 2, 340}), 78, 0, RAYWHITE);
 
 		//Act according to user actions
 		if (handleButton(playButton, 292, true, true))

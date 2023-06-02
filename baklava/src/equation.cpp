@@ -63,11 +63,11 @@ void equationHandler(InputBoxInfo& inputBox, Equation& equation, TowerStats towe
 void drawEquation(Equation& equation, Font& font)
 {
     //Draw box
-    DrawRectangleRec(Rectangle{ 920, 40, 300, 90 }, RAYWHITE);
+    DrawRectangleRec(Rectangle{ GetScreenWidth() / 2 - 150.0f, 40, 300, 90}, RAYWHITE);
 
     //Draw border
-    DrawRectangleLinesEx(Rectangle{ 920, 40, 300, 90 }, 4, BLACK);
+    DrawRectangleLinesEx(Rectangle{ GetScreenWidth() / 2 - 150.0f, 40, 300, 90 }, 4, BLACK);
 
     //Draw Equation
-    DrawTextEx(font, TextFormat("%i %c %i = ", equation.firstNumber, equation.operation, equation.secondNumber), Vector2({ 940, 56 }), 52, 0, BLACK);
+    DrawTextEx(font, TextFormat("%i %c %i = ", equation.firstNumber, equation.operation, equation.secondNumber), Vector2({ GetScreenWidth() / 2 - 140.0f, 56 }), 52, 0, BLACK);
 }

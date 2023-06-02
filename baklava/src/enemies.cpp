@@ -20,7 +20,7 @@ EnemyStats generateEnemy(EnemyWave &mainWave)
 			break;
 	}
 
-	stats.linePos = 15.0f;
+	stats.linePos = 30.0f;
 	stats.offset = float(GetRandomValue(1, 100)) / 60.0f;
 	stats.direction = GetRandomValue(-1, 2);
 	stats.directionChange = GetRandomValue(1, 2);
@@ -37,11 +37,13 @@ void waveSpawnHandler(int& debounce, const int enemyLimit, EnemyWave& wave, std:
 {
 	if (wave.enemiesLeft > 0 && wave.wave <= 10 && waveTimer == 0)
 	{
-		if (enemyList.size() <= enemyLimit && debounce == 0)
+		if (debounce == 0)
 		{
 			enemyList.push_back(generateEnemy(wave));
 
-			debounce = 0.8 * fps;
+			wave.enemiesLeftAlive++;
+
+			debounce = (1.0f * fps) - (wave.wave * (0.05f * fps));
 			wave.enemiesLeft--;
 		}
 		debounce--;
@@ -50,8 +52,8 @@ void waveSpawnHandler(int& debounce, const int enemyLimit, EnemyWave& wave, std:
 	{
 		wave.wave++;
 		waveTimer = 2 * fps;
-		wave.enemiesLeft = 6;
-		wave.enemiesLeftAlive = wave.enemiesLeft;
+		wave.enemiesLeft = 10 + (wave.wave * 4);
+		wave.enemiesLeftAlive = 0;
 	}
 	else
 	{

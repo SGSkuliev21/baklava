@@ -4,11 +4,12 @@ int main()
 {
     // Initializing the window
     const int fpsCap = 60;
-    const int screenWidth = 1280;
-    const int screenHeight = 720;
+    const int screenWidth = 1920;
+    const int screenHeight = 1080;
     int frameCounter = 0;
     SetConfigFlags(FLAG_MSAA_4X_HINT);
     InitWindow(screenWidth, screenHeight, "Baklava");
+    //ToggleFullscreen();
 
     //Load font and configure upscaling
     Font mainFont = LoadFontEx("assets/fonts/MainFont.ttf", 108, NULL, 0);
@@ -26,7 +27,7 @@ int main()
     TowerStats towerStats = { 5.0f, 150.0f, 0.01f, 1, Vector3({3.0f, 9.0f, 3.0f}), Vector3({0.0f, 4.5f, 0.0f}) };
  
     // Initializing enemy system
-    const int enemyLimit = 6, debounceTimer = 0.8f*fpsCap;
+    const int enemyLimit = 20, debounceTimer = 4.0f*fpsCap;
     std::vector<EnemyStats> enemyList;
     enemyList.reserve(enemyLimit);
     int enemyDebounce = 0;
@@ -37,8 +38,8 @@ int main()
     int wavesLeft = 10;
     EnemyWave mainWave;
     mainWave.wave = 1;
-    mainWave.enemiesLeft = 6;
-    mainWave.enemiesLeftAlive = mainWave.enemiesLeft;
+    mainWave.enemiesLeft = 10;
+    mainWave.enemiesLeftAlive = 0;
     int waveTimer = 2 * fpsCap;
 
     // Generating equation
@@ -50,7 +51,7 @@ int main()
     inputBox.textBox = { 970, 56, 100, 60 };
 
     //Define upgrade menu
-    Rectangle upgradeMenu = { -324, 0, 320, 720 };
+    Rectangle upgradeMenu = { -324, 0, 320, GetScreenHeight()};
 
     Button upgradeMenuButton = { Rectangle{ -4, 39, 60, 206 }, 0, CLITERAL(Color){ 187, 187, 187, 255 }, CLITERAL(Color) { 167, 167, 167, 255 } };
     
@@ -176,8 +177,8 @@ int main()
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
-        DrawRectangleGradientH(0, 0, 1280, 720, CLITERAL(Color){ 2, 171, 58, 255 },CLITERAL(Color){ 1, 97, 33, 255 } );
-        DrawRectangleGradientV(0, 0, 1280, 720, CLITERAL(Color){ 2, 171, 58, 255 }, CLITERAL(Color) { 1, 97, 33, 255 });
+        DrawRectangleGradientH(0, 0, GetScreenWidth(), GetScreenHeight(), CLITERAL(Color){ 2, 171, 58, 255 }, CLITERAL(Color) { 1, 97, 33, 255 });
+        DrawRectangleGradientV(0, 0, GetScreenWidth(), GetScreenHeight(), CLITERAL(Color){ 2, 171, 58, 255 }, CLITERAL(Color) { 1, 97, 33, 255 });
        
         if (IsKeyPressed(KEY_ENTER))
         {
@@ -193,7 +194,7 @@ int main()
             {
                 drawEnemy(enemyList[i]);
 
-                enemyList[i].linePos -= 1.8f * GetFrameTime();
+                enemyList[i].linePos -= 2.2f * GetFrameTime();
 
                 if (enemyList[i].linePos <= 1.8f)
                 {
@@ -289,7 +290,7 @@ int main()
 
         if (isDamaged)
         {
-            DrawCircleGradient(screenWidth / 2.0f, screenHeight / 2.0f, 750, CLITERAL(Color){0, 0, 0, 0}, CLITERAL(Color) { 180, 0, 0, 100 });
+            DrawCircleGradient(screenWidth / 2.0f, screenHeight / 2.0f, screenWidth, CLITERAL(Color){0, 0, 0, 0}, CLITERAL(Color) { 180, 0, 0, 100 });
         }
 
         if (mmFadeTimer > 0)

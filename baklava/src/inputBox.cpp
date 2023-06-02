@@ -25,7 +25,7 @@ void drawInputBox(InputBoxInfo& inputBox, Equation& equation, Font& font)
 			inputBox.input[inputBox.numCount] = '\0';
 		}
 
-		Vector2 textPos = Vector2{ inputBox.textBox.x + MeasureTextEx(font, TextFormat("%i %c %i", equation.firstNumber, equation.operation, equation.secondNumber), 54, 0).x, inputBox.textBox.y };
+		Vector2 textPos = Vector2{ inputBox.textBox.x + MeasureTextEx(font, TextFormat("%i %c %i", equation.firstNumber, equation.operation, equation.secondNumber), 54, 0).x - 10.0f, inputBox.textBox.y };
 
 		DrawTextEx(font, inputBox.input, textPos, 52, 0, BLACK);
 

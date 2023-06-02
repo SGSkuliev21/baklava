@@ -11,7 +11,7 @@ bool showDefeatScreen()
 
 	//Declare the play button
 	Button playButton;
-	playButton.rec = { 235, 431, 292, 113 };
+	playButton.rec = { GetScreenWidth() / 3.6f, GetScreenHeight() / 1.7f, 292, 113 };
 	playButton.state = 0;
 	playButton.color = CLITERAL(Color) { 2, 171, 58, 255 };
 	playButton.hoverColor = CLITERAL(Color) { 0, 141, 28, 255 };
@@ -19,7 +19,7 @@ bool showDefeatScreen()
 
 	//Declare the quit button
 	Button quitButton;
-	quitButton.rec = { 753, 431, 292, 113 };
+	quitButton.rec = { GetScreenWidth() / 1.7f, GetScreenHeight() / 1.7f, 292, 113};
 	quitButton.state = 0;
 	quitButton.color = CLITERAL(Color) { 194, 51, 51, 255 };
 	quitButton.hoverColor = CLITERAL(Color) { 164, 21, 21, 255 };
@@ -33,7 +33,7 @@ bool showDefeatScreen()
 		ClearBackground(BLACK);
 
 		//Draw the title
-		DrawTextEx(mainFont, "You died!", Vector2({ 640 - MeasureTextEx(mainFont, "You died!", 54, 0).x / 2, 152 }), 54, 0, RED);
+		DrawTextEx(mainFont, "You died!", Vector2({ GetScreenWidth() / 2 - MeasureTextEx(mainFont, "You died!", 78, 0).x / 2, 304}), 78, 0, RED);
 
 		//Act according to user actions
 		if (handleButton(playButton, 292, true, false))
